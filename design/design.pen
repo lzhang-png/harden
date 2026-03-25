@@ -1,0 +1,47 @@
+{
+  "version": "2.9",
+  "children": [
+    {
+      "type": "rectangle",
+      "id": "u2RVo",
+      "x": 0,
+      "y": 0,
+      "fill": {
+        "type": "image",
+        "enabled": true,
+        "url": "./image/image.png",
+        "mode": "fill"
+      },
+      "width": 1376,
+      "height": 768
+    },
+    {
+      "type": "rectangle",
+      "id": "KJue5",
+      "x": 0,
+      "y": 887,
+      "fill": {
+        "type": "image",
+        "enabled": true,
+        "url": "./image/image2.png",
+        "mode": "fill"
+      },
+      "width": 1376,
+      "height": 768
+    },
+    {
+      "type": "rectangle",
+      "id": "ZKTMa",
+      "x": 0,
+      "y": 1810,
+      "fill": {
+        "type": "image",
+        "enabled": true,
+        "url": "./image/image3.png",
+        "mode": "fill"
+      },
+      "width": 1376,
+      "height": 768
+    }
+  ]
+}
