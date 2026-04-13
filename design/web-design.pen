@@ -1,0 +1,1097 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Harden — Landing (minimal)",
+      "clip": true,
+      "width": 1440,
+      "height": 3800,
+      "fill": "$bg/surface",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "jPuSk",
+          "name": "Nav",
+          "width": "fill_container",
+          "height": 72,
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$border/muted"
+          },
+          "padding": [
+            0,
+            64
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "LGpOn",
+              "name": "logo",
+              "fill": "$text/primary",
+              "content": "Harden",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "600",
+              "letterSpacing": -0.5
+            },
+            {
+              "type": "frame",
+              "id": "TasSv",
+              "name": "Nav CTA",
+              "fill": "$ink/strong",
+              "padding": [
+                12,
+                20
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "0ahM5",
+                  "name": "navCtaTxt",
+                  "fill": "$text/inverse",
+                  "content": "Get early access",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "E3iuA",
+          "name": "Hero",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            80,
+            64,
+            72,
+            64
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "bQQ0w",
+              "name": "Badge",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$border/muted"
+              },
+              "padding": [
+                8,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mYWm8",
+                  "name": "badgeTxt",
+                  "fill": "$text/primary",
+                  "content": "Now in private beta",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.8
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "2gyaP",
+              "name": "h1",
+              "fill": "$text/primary",
+              "content": "Enterprise security for AI-built apps. In your VPC.",
+              "lineHeight": 1.08,
+              "fontFamily": "Inter",
+              "fontSize": 52,
+              "fontWeight": "600",
+              "letterSpacing": -1.2
+            },
+            {
+              "type": "text",
+              "id": "cjswM",
+              "name": "sub",
+              "opacity": 0.85,
+              "fill": "$text/primary",
+              "content": "SSO, policies, observability, and audit trails for any AI app — live in minutes. Zero DevOps.",
+              "lineHeight": 1.55,
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "5nj5w",
+              "name": "CTAs",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oGuOL",
+                  "name": "pri",
+                  "fill": "$ink/strong",
+                  "padding": [
+                    16,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wGQSl",
+                      "name": "priT",
+                      "fill": "$text/inverse",
+                      "content": "Get early access",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "BxeUg",
+                  "name": "sec",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$ink/strong"
+                  },
+                  "padding": [
+                    16,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Z51YL",
+                      "name": "secT",
+                      "fill": "$text/primary",
+                      "content": "Talk to an expert",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wBvuO",
+          "name": "Works with",
+          "width": "fill_container",
+          "fill": "$bg/paper",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1,
+              "bottom": 1
+            },
+            "fill": "$border/muted"
+          },
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            32,
+            64
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "pSnAz",
+              "name": "pLabel",
+              "opacity": 0.55,
+              "fill": "$text/primary",
+              "content": "Works with",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "61xI6",
+              "name": "prow",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "E094i",
+                  "name": "p1",
+                  "fill": "$text/primary",
+                  "content": "Cursor",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "qaS77",
+                  "name": "p2",
+                  "fill": "$text/primary",
+                  "content": "Bolt",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "o9dOH",
+                  "name": "p3",
+                  "fill": "$text/primary",
+                  "content": "Lovable",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "xKUC5",
+                  "name": "p4",
+                  "fill": "$text/primary",
+                  "content": "Replit",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "TsrBs",
+                  "name": "p5",
+                  "opacity": 0.6,
+                  "fill": "$text/primary",
+                  "content": "+ any web app",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LBwPc",
+          "name": "Compare",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            72,
+            64
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "fZn8E",
+              "name": "cHead",
+              "fill": "$text/primary",
+              "content": "Works on their laptop. Fails every enterprise checklist.",
+              "fontFamily": "Inter",
+              "fontSize": 32,
+              "fontWeight": "600",
+              "letterSpacing": -0.8
+            },
+            {
+              "type": "frame",
+              "id": "U6vYJ",
+              "name": "cols",
+              "width": "fill_container",
+              "gap": 48,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "0iqZD",
+                  "name": "Vibe",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border/muted"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DnxfX",
+                      "name": "colLT",
+                      "opacity": 0.7,
+                      "fill": "$text/primary",
+                      "content": "What vibe coders ship",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "vxSJg",
+                      "name": "l1",
+                      "fill": "$text/primary",
+                      "content": "— No auth",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pcb3h",
+                      "name": "l2",
+                      "fill": "$text/primary",
+                      "content": "— Hardcoded API keys",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sx0Cv",
+                      "name": "l3",
+                      "fill": "$text/primary",
+                      "content": "— Unrestricted outbound",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qOiDA",
+                      "name": "l4",
+                      "fill": "$text/primary",
+                      "content": "— No audit trail",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "htYV9",
+                  "name": "Enterprise",
+                  "width": "fill_container",
+                  "fill": "$ink/strong",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "paS4g",
+                      "name": "colRT",
+                      "opacity": 0.9,
+                      "fill": "$text/inverse",
+                      "content": "What enterprises require",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "01D6B",
+                      "name": "r1",
+                      "opacity": 0.95,
+                      "fill": "$text/inverse",
+                      "content": "SSO (OIDC), RBAC",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pFuLj",
+                      "name": "r2",
+                      "opacity": 0.95,
+                      "fill": "$text/inverse",
+                      "content": "Secrets in Vault / AWS SM",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "u7iOt",
+                      "name": "r3",
+                      "opacity": 0.95,
+                      "fill": "$text/inverse",
+                      "content": "Egress allowlists, DLP",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DzjzP",
+                      "name": "r4",
+                      "opacity": 0.95,
+                      "fill": "$text/inverse",
+                      "content": "SOC 2 / ISO evidence",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "WwoI9",
+          "name": "Features",
+          "width": "fill_container",
+          "fill": "$bg/paper",
+          "layout": "vertical",
+          "gap": 36,
+          "padding": [
+            72,
+            64
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "aaJrU",
+              "name": "fh",
+              "fill": "$text/primary",
+              "content": "From localhost to compliance-ready agents",
+              "fontFamily": "Inter",
+              "fontSize": 32,
+              "fontWeight": "600",
+              "letterSpacing": -0.8
+            },
+            {
+              "type": "frame",
+              "id": "n2BHm",
+              "name": "grid",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EPFVl",
+                  "name": "c1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border/muted"
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "W8kya",
+                      "name": "c1t",
+                      "fill": "$text/primary",
+                      "content": "Identity & access",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zkmw3",
+                      "name": "c1b",
+                      "opacity": 0.85,
+                      "fill": "$text/primary",
+                      "content": "SSO from Okta, Entra, or Google. Users find apps in the launcher — no custom auth code.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "U3LYX",
+                  "name": "c2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border/muted"
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KfaTP",
+                      "name": "c2t",
+                      "fill": "$text/primary",
+                      "content": "Security hardening",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zm5Uw",
+                      "name": "c2b",
+                      "opacity": 0.85,
+                      "fill": "$text/primary",
+                      "content": "Deny by default: egress, surrogate creds, PII redaction, SBOMs, AI guardrails.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WANMW",
+                  "name": "c3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border/muted"
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XwLIQ",
+                      "name": "c3t",
+                      "fill": "$text/primary",
+                      "content": "Audit & ops",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "2x1Mn",
+                      "name": "c3b",
+                      "opacity": 0.85,
+                      "fill": "$text/primary",
+                      "content": "Signed trails, structured logs, SBOM tracking, one-command VPC deploy.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Zi5BE",
+                  "name": "c4",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border/muted"
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Y35C4",
+                      "name": "c4t",
+                      "fill": "$text/primary",
+                      "content": "Cost controls",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "8PdGy",
+                      "name": "c4b",
+                      "opacity": 0.85,
+                      "fill": "$text/primary",
+                      "content": "Hard caps per app, usage tracking, alerts before budget.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yWd2J",
+          "name": "Enterprise",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            72,
+            64
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "ckPt0",
+              "name": "eh",
+              "fill": "$text/primary",
+              "content": "Built for enterprise requirements",
+              "fontFamily": "Inter",
+              "fontSize": 32,
+              "fontWeight": "600",
+              "letterSpacing": -0.8
+            },
+            {
+              "type": "text",
+              "id": "8DGPY",
+              "name": "esub",
+              "opacity": 0.8,
+              "fill": "$text/primary",
+              "content": "Deploy with confidence. Meet compliance. Keep full control.",
+              "lineHeight": 1.5,
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "BIodp",
+              "name": "eg",
+              "width": "fill_container",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "sSQwb",
+                  "name": "eg1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border/muted"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "5KCmA",
+                      "name": "eg1t",
+                      "fill": "$text/primary",
+                      "content": "SOC 2–ready architecture",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Tw4S3",
+                      "name": "eg1b",
+                      "opacity": 0.8,
+                      "fill": "$text/primary",
+                      "content": "Controls mapped and documented for auditors.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Bdje6",
+                  "name": "eg2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border/muted"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ouEJA",
+                      "name": "eg2t",
+                      "fill": "$text/primary",
+                      "content": "SSO & SCIM",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zf3yX",
+                      "name": "eg2b",
+                      "opacity": 0.8,
+                      "fill": "$text/primary",
+                      "content": "Okta, Entra ID, Google, and your existing IdP.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DZDdM",
+                  "name": "eg3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$border/muted"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LbRMD",
+                      "name": "eg3t",
+                      "fill": "$text/primary",
+                      "content": "On-premises",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "he1f1",
+                      "name": "eg3b",
+                      "opacity": 0.8,
+                      "fill": "$text/primary",
+                      "content": "Data stays in your infrastructure.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "KzSgy",
+          "name": "CLI band",
+          "width": "fill_container",
+          "fill": "$ink/strong",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 64,
+          "children": [
+            {
+              "type": "text",
+              "id": "sIrea",
+              "name": "clih",
+              "fill": "$text/inverse",
+              "content": "CLI is open source. Free forever.",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "600",
+              "letterSpacing": -0.5
+            },
+            {
+              "type": "text",
+              "id": "qOPKh",
+              "name": "clib",
+              "opacity": 0.85,
+              "fill": "$text/inverse",
+              "content": "Analyze locally, generate config & Helm, export SOC 2 evidence — no lock-in.",
+              "lineHeight": 1.55,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Mc93Z",
+          "name": "Footer CTA",
+          "width": "fill_container",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "$border/muted"
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            80,
+            64
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "K9Njl",
+              "name": "fh2",
+              "fill": "$text/primary",
+              "content": "See Harden on your codebase",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "600",
+              "letterSpacing": -0.5
+            },
+            {
+              "type": "text",
+              "id": "RkAB1",
+              "name": "fs",
+              "opacity": 0.8,
+              "fill": "$text/primary",
+              "content": "15 minutes. We run it on your app live.",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "VIQbr",
+              "name": "fbtn",
+              "fill": "$ink/strong",
+              "padding": [
+                16,
+                28
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xtYF2",
+                  "name": "fbt",
+                  "fill": "$text/inverse",
+                  "content": "Book a 15-minute demo",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "hqJEv",
+      "x": 1488,
+      "y": 0,
+      "name": "Palette — tokens",
+      "width": 180,
+      "height": 260,
+      "fill": "$bg/paper",
+      "stroke": {
+        "align": "inside",
+        "thickness": 1,
+        "fill": "$border/muted"
+      },
+      "layout": "vertical",
+      "gap": 12,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "TqAUd",
+          "name": "pt",
+          "fill": "$text/primary",
+          "content": "Colors",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "letterSpacing": 1.5
+        },
+        {
+          "type": "frame",
+          "id": "8JmUs",
+          "name": "s1",
+          "width": "fill_container",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "aKgFz",
+              "name": "sq1",
+              "fill": "$bg/surface",
+              "width": 24,
+              "height": 24,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$border/muted"
+              }
+            },
+            {
+              "type": "text",
+              "id": "hVFUA",
+              "name": "lb1",
+              "fill": "$text/primary",
+              "content": "bg/surface  #fcfbf5",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TQEeT",
+          "name": "s2",
+          "width": "fill_container",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "INHJ4",
+              "name": "sq2",
+              "fill": "$bg/paper",
+              "width": 24,
+              "height": 24,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$border/muted"
+              }
+            },
+            {
+              "type": "text",
+              "id": "0yv4q",
+              "name": "lb2",
+              "fill": "$text/primary",
+              "content": "bg/paper  #FFFFFF",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "6QYVU",
+          "name": "s3",
+          "width": "fill_container",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "OjF4u",
+              "name": "sq3",
+              "fill": "$ink/strong",
+              "width": 24,
+              "height": 24
+            },
+            {
+              "type": "text",
+              "id": "PWaOD",
+              "name": "lb3",
+              "fill": "$text/primary",
+              "content": "ink  #3d3c36",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "iroDA",
+          "name": "s4",
+          "width": "fill_container",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "nup0w",
+              "name": "sq4",
+              "fill": "$border/muted",
+              "width": 24,
+              "height": 24
+            },
+            {
+              "type": "text",
+              "id": "seEte",
+              "name": "lb4",
+              "fill": "$text/primary",
+              "content": "border  #a7a59a",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "bg/paper": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "bg/surface": {
+      "type": "color",
+      "value": "#fcfbf5"
+    },
+    "border/muted": {
+      "type": "color",
+      "value": "#a7a59a"
+    },
+    "ink/strong": {
+      "type": "color",
+      "value": "#3d3c36"
+    },
+    "text/inverse": {
+      "type": "color",
+      "value": "#fcfbf5"
+    },
+    "text/primary": {
+      "type": "color",
+      "value": "#3d3c36"
+    }
+  }
+}

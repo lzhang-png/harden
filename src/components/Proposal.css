@@ -1,0 +1,231 @@
+.proposal {
+  background: #fcfbf5;
+  min-height: 100vh;
+}
+
+/* ── Direction Row ── */
+
+.dir-row {
+  display: flex;
+  border-bottom: 2px solid #a7a59a;
+  padding: clamp(1rem, 2vw, 2.5rem) 0;
+}
+
+.dir-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: clamp(280px, 32vw, 460px);
+  position: relative;
+  overflow: hidden;
+}
+
+.dir-col-gallery {
+  flex: 1.25;
+  padding: 6px;
+}
+
+/* ── Direction Number ── */
+
+.dir-num {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.2vw, 3rem);
+  color: #000;
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+/* ── Lockups ── */
+
+.dir-lockup-h {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 1vw, 1.25rem);
+  width: 100%;
+}
+
+.dir-lockup-v {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 1.25rem);
+}
+
+/* ── Mark Images ── */
+
+.dir-mark-img {
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  max-width: 80%;
+}
+
+.dir-mark-h {
+  max-height: clamp(1.5rem, 3vw, 3.5rem);
+  width: auto;
+  height: auto;
+}
+
+.dir-mark-v {
+  max-height: clamp(2.5rem, 5vw, 5rem);
+  width: auto;
+  height: auto;
+}
+
+.dir-mark-solo {
+  max-height: clamp(4rem, 8vw, 8rem);
+  width: auto;
+  height: auto;
+}
+
+/* ── Wordmark ── */
+
+.dir-wordmark {
+  color: #3d3c36;
+  font-size: clamp(1rem, 1.8vw, 2.5rem);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ── Gallery (mockup grid) ── */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  width: 100%;
+}
+
+.gallery-item {
+  border-radius: 4px;
+  overflow: hidden;
+  line-height: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-item:first-child {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── Pricing Section ── */
+
+.pricing-section {
+  padding: clamp(2rem, 4vw, 4rem) 24px clamp(4rem, 8vw, 8rem);
+  position: relative;
+}
+
+.pricing-label {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.2vw, 3rem);
+  color: #000;
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 5rem);
+  padding-left: clamp(1rem, 5vw, 10rem);
+}
+
+.pricing-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pricing-item h3 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3.5vw, 4.5rem);
+  color: #000;
+  line-height: 1;
+  margin: 0;
+}
+
+.pricing-total h3 {
+  font-weight: 400;
+}
+
+.pricing-item p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.75rem, 1vw, 1.1rem);
+  color: #000;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1024px) {
+  .dir-row {
+    flex-wrap: wrap;
+  }
+
+  .dir-col {
+    flex: 1 1 calc(50% - 1px);
+    min-height: 220px;
+  }
+
+  .dir-col-gallery {
+    flex: 1 1 100%;
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .dir-col {
+    flex: 1 1 100%;
+    border-bottom: none;
+    min-height: 180px;
+  }
+
+  .dir-col-gallery {
+    min-height: 220px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-item:first-child {
+    grid-column: span 2;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+}
+
+@media print {
+  .dir-row {
+    break-inside: avoid;
+  }
+
+  .pricing-section {
+    break-inside: avoid;
+  }
+}

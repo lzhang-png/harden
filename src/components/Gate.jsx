@@ -30,7 +30,7 @@ export default function Gate({ onAuthenticated }) {
   return (
     <div className="gate">
       <h2>This page is protected</h2>
-      <p>Enter the passcode to view the Design Roadmap.</p>
+      <p>Enter the passcode to view the design proposal.</p>
       <form onSubmit={handleSubmit}>
         <input
           type="password"

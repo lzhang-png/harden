@@ -1,0 +1,30 @@
+.auth-shell {
+  min-height: 100vh;
+  background: #fcfbf5;
+}
+
+.app-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #a7a59a;
+  background: rgba(252, 251, 245, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.app-nav-link {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s;
+}
+
+.app-nav-link:hover {
+  opacity: 0.65;
+}

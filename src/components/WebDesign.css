@@ -1,0 +1,29 @@
+.web-design-page {
+  min-height: 100vh;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 4vw, 2.5rem) clamp(3rem, 8vw, 6rem);
+  max-width: 640px;
+  margin: 0 auto;
+  font-family: 'Lato', sans-serif;
+}
+
+.web-design-header h1 {
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #000;
+  margin-bottom: 0.75rem;
+}
+
+.web-design-header p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.web-design-placeholder {
+  margin-top: 2rem;
+  min-height: 200px;
+  border: 1px dashed #a7a59a;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.02);
+}

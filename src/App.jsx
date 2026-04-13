@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Gate from './components/Gate';
-import Roadmap from './components/Roadmap';
+import AuthenticatedLayout from './components/AuthenticatedLayout';
+import Menu from './components/Menu';
+import Proposal from './components/Proposal';
+import WebDesign from './components/WebDesign';
 import { getStoredToken, storeToken, clearToken, verifyToken } from './services/auth';
 
 export default function App() {
@@ -37,5 +41,15 @@ export default function App() {
     return <Gate onAuthenticated={handleAuthenticated} />;
   }
 
-  return <Roadmap />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<AuthenticatedLayout />}>
+          <Route index element={<Menu />} />
+          <Route path="proposal" element={<Proposal />} />
+          <Route path="web-design" element={<WebDesign />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
