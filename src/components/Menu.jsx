@@ -5,20 +5,22 @@ export default function Menu() {
   return (
     <div className="menu-page">
       <header className="menu-header">
-        <h1>Harden.run Design</h1>
+        <h1>Harden Design</h1>
       </header>
 
       <ul className="menu-list" role="list">
         <li>
-          <Link className="menu-card menu-card-primary" to="/proposal">
+          <Link className="menu-card" to="/proposal">
             <span className="menu-card-title">Full proposal</span>
             <span className="menu-card-hint">All directions &amp; pricing</span>
+            <span className="menu-card-date">3.27.26</span>
           </Link>
         </li>
         <li>
-          <Link className="menu-card" to="/web-design">
-            <span className="menu-card-title">Web design</span>
-            <span className="menu-card-hint">Site &amp; layout exploration</span>
+          <Link className="menu-card" to="/brand-guidelines">
+            <span className="menu-card-title">Brand guidelines</span>
+            <span className="menu-card-hint">Logo usage, colors &amp; typography</span>
+            <span className="menu-card-date">4.14.26</span>
           </Link>
         </li>
       </ul>

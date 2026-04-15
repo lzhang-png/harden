@@ -5,6 +5,7 @@ import AuthenticatedLayout from './components/AuthenticatedLayout';
 import Menu from './components/Menu';
 import Proposal from './components/Proposal';
 import WebDesign from './components/WebDesign';
+import BrandGuidelines from './components/BrandGuidelines';
 import { getStoredToken, storeToken, clearToken, verifyToken } from './services/auth';
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
           <Route index element={<Menu />} />
           <Route path="proposal" element={<Proposal />} />
           <Route path="web-design" element={<WebDesign />} />
+          <Route path="brand-guidelines" element={<BrandGuidelines />} />
         </Route>
       </Routes>
     </BrowserRouter>

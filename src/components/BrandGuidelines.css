@@ -1,0 +1,588 @@
+.brand-guide {
+  background: #fcfbf5;
+  min-height: 100vh;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem) clamp(4rem, 8vw, 8rem);
+  max-width: 780px;
+  margin: 0 auto;
+  font-family: 'Lato', sans-serif;
+}
+
+.brand-guide-header {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.brand-guide-header h1 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #000;
+  margin: 0 0 0.6rem;
+}
+
+.brand-guide-header p {
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  color: #3d3c36;
+  line-height: 1.55;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.brand-guide-toc {
+  border: 1px solid #a7a59a;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.brand-guide-toc-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #000;
+  opacity: 0.45;
+  margin-bottom: 0.75rem;
+}
+
+.brand-guide-toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem 2rem;
+}
+
+.brand-guide-toc li {
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.brand-guide-toc a {
+  color: #3d3c36;
+  text-decoration: none;
+}
+
+.brand-guide-toc a:hover {
+  text-decoration: underline;
+}
+
+.brand-guide-section {
+  padding: clamp(1.25rem, 2.5vw, 2rem) 0;
+  border-top: 1px solid #a7a59a;
+}
+
+.brand-guide-section:last-child {
+  border-bottom: 1px solid #a7a59a;
+}
+
+.brand-guide-section h2 {
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #000;
+  margin: 0 0 0.75rem;
+}
+
+.brand-guide-section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.brand-guide-section li {
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  line-height: 1.65;
+  color: #3d3c36;
+}
+
+/* ── Clear Space ── */
+
+.clearspace-showcase {
+  margin-bottom: 1.25rem;
+}
+
+.clearspace-intro {
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  line-height: 1.6;
+  color: #3d3c36;
+  margin: 0 0 1.25rem;
+}
+
+.clearspace-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.clearspace-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.clearspace-diagram-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  opacity: 0.45;
+}
+
+.clearspace-box {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearspace-zone {
+  position: relative;
+  background: rgba(135, 41, 33, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearspace-dim {
+  position: absolute;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #B5564E;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.clearspace-dim-top {
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.clearspace-dim-bottom {
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+}
+
+.clearspace-dim-left {
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.clearspace-dim-right {
+  top: 50%;
+  transform: translateX(50%) translateY(-50%);
+}
+
+.clearspace-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #31353B;
+  background: #fff;
+}
+
+.clearspace-logo-svg {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+}
+
+.clearspace-logo-svg.clearspace-logo-stacked {
+  max-width: 160px;
+}
+
+.clearspace-logo-svg.clearspace-logo-mark {
+  max-width: 80px;
+}
+
+.clearspace-min-sizes {
+  margin-top: 1.25rem;
+}
+
+.clearspace-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+}
+
+.clearspace-table th,
+.clearspace-table td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #a7a59a;
+}
+
+.clearspace-table th {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #000;
+  opacity: 0.5;
+}
+
+.clearspace-table td {
+  color: #3d3c36;
+}
+
+.clearspace-table td:first-child {
+  font-weight: 600;
+  color: #000;
+}
+
+.clearspace-table-note {
+  margin: 0.6rem 0 0;
+  font-size: 0.75rem;
+  color: #3d3c36;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+}
+
+/* ── Logo Showcase ── */
+
+.brand-guide-logo-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.brand-guide-logo-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.brand-guide-logo-variant-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  opacity: 0.45;
+}
+
+.brand-guide-logo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.brand-guide-logo-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.brand-guide-logo-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.brand-guide-logo-bg-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #3d3c36;
+  opacity: 0.5;
+}
+
+.brand-guide-logo-light,
+.brand-guide-logo-dark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 3.5rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.brand-guide-logo-light {
+  background: #fff;
+  color: #31353B;
+}
+
+.brand-guide-logo-dark {
+  background: #31353B;
+  color: #fff;
+}
+
+.brand-guide-logo-mono.brand-guide-logo-light {
+  color: #000;
+}
+
+.brand-guide-logo-mono.brand-guide-logo-dark {
+  background: #000;
+  color: #fff;
+}
+
+.brand-guide-logo-svg {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+.brand-guide-logo-stacked {
+  max-width: 140px;
+}
+
+.brand-guide-logo-mark {
+  max-width: 80px;
+}
+
+/* ── Favicon ── */
+
+.brand-guide-favicon-intro {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #3d3c36;
+  margin: 0.25rem 0 1rem;
+}
+
+.brand-guide-favicon-example {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.brand-guide-favicon-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+
+.brand-guide-favicon-light {
+  background: #F4F2EA;
+}
+
+.brand-guide-favicon-svg {
+  width: 72px;
+  height: 72px;
+}
+
+.brand-guide-favicon-sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.brand-guide-favicon-size-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-guide-favicon-size {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #000;
+  min-width: 5rem;
+}
+
+.brand-guide-favicon-use {
+  font-size: 0.75rem;
+  color: #3d3c36;
+  opacity: 0.7;
+  min-width: 9rem;
+}
+
+@media (max-width: 640px) {
+  .brand-guide-favicon-example {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.brand-guide-download {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.brand-guide-download:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.brand-guide-logo-dark .brand-guide-download {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.brand-guide-logo-dark .brand-guide-download:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.brand-guide-logo-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+}
+
+@media (max-width: 540px) {
+  .brand-guide-logo-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Palette Swatches ── */
+
+.palette-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.palette-group-name {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.palette-shades {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.palette-shade {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.palette-shade:hover .palette-shade-color {
+  transform: scale(1.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.palette-shade-color {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.palette-copied {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.palette-shade-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #000;
+  opacity: 0.5;
+}
+
+.palette-shade-hex {
+  font-size: 0.68rem;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  color: #3d3c36;
+  text-transform: uppercase;
+}
+
+/* ── Accordion ── */
+
+.brand-guide-accordion {
+  margin-top: 1rem;
+  border: 1px solid #a7a59a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.brand-guide-accordion summary {
+  padding: 0.7rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #3d3c36;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.025);
+  transition: background 0.15s;
+}
+
+.brand-guide-accordion summary:hover {
+  background: rgba(0, 0, 0, 0.055);
+}
+
+.brand-guide-accordion summary::before {
+  content: '\25B6';
+  font-size: 0.55rem;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.brand-guide-accordion[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.brand-guide-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.brand-guide-steps {
+  margin: 0;
+  padding: 1rem 1rem 1rem 2.25rem;
+  border-top: 1px solid #a7a59a;
+}
+
+.brand-guide-steps li {
+  font-size: clamp(0.82rem, 1vw, 0.9rem);
+  line-height: 1.6;
+  color: #3d3c36;
+  padding: 0.2rem 0;
+}
+
+@media (max-width: 540px) {
+  .brand-guide-toc ol {
+    grid-template-columns: 1fr;
+  }
+}

@@ -67,3 +67,9 @@
   color: #666;
   line-height: 1.4;
 }
+
+.menu-card-date {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 0.15rem;
+}
