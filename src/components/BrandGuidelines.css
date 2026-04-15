@@ -471,9 +471,38 @@
   opacity: 0.5;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
   .brand-guide-logo-pair {
     grid-template-columns: 1fr;
+  }
+
+  .brand-guide-logo-light,
+  .brand-guide-logo-dark {
+    padding: 2rem 1.5rem;
+  }
+
+  .brand-guide-logo-svg {
+    max-width: 100%;
+  }
+
+  .clearspace-logo-svg {
+    max-width: 100%;
+  }
+
+  .clearspace-logo-svg.clearspace-logo-stacked {
+    max-width: 50%;
+  }
+
+  .clearspace-logo-svg.clearspace-logo-mark {
+    max-width: 30%;
+  }
+
+  .misuse-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .misuse-logo-svg {
+    max-width: 100%;
   }
 }
 
@@ -721,17 +750,7 @@
   }
 
   .brand-guide-toc {
-    position: static;
-    width: 100%;
-    border-bottom: 1px solid #a7a59a;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .brand-guide-toc ol {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.15rem 0.5rem;
+    display: none;
   }
 }
 
@@ -828,12 +847,6 @@
   color: #3d3c36;
   opacity: 0.7;
   line-height: 1.45;
-}
-
-@media (max-width: 480px) {
-  .misuse-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ── Typography ── */
