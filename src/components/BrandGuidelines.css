@@ -2,9 +2,20 @@
   background: #fcfbf5;
   min-height: 100vh;
   padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem) clamp(4rem, 8vw, 8rem);
-  max-width: 780px;
+  max-width: 1060px;
   margin: 0 auto;
   font-family: 'Lato', sans-serif;
+}
+
+.brand-guide-body {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.brand-guide-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .brand-guide-header {
@@ -28,43 +39,57 @@
 }
 
 .brand-guide-toc {
-  border: 1px solid #a7a59a;
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  position: sticky;
+  top: calc(var(--nav-h, 49px) + 1rem);
+  width: 190px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
 }
 
 .brand-guide-toc-label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #000;
-  opacity: 0.45;
-  margin-bottom: 0.75rem;
+  opacity: 0.35;
+  margin-bottom: 0.6rem;
 }
 
 .brand-guide-toc ol {
   margin: 0;
-  padding-left: 1.25rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.3rem 2rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
 }
 
 .brand-guide-toc li {
-  font-size: 0.88rem;
-  line-height: 1.6;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
 .brand-guide-toc a {
   color: #3d3c36;
   text-decoration: none;
+  display: block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px;
+  transition: background 0.15s;
 }
 
 .brand-guide-toc a:hover {
-  text-decoration: underline;
+  background: rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+
+.brand-guide-toc a.toc-active {
+  background: rgba(135, 41, 33, 0.08);
+  color: #872921;
+  font-weight: 600;
 }
 
 .brand-guide-section {
@@ -82,6 +107,11 @@
   letter-spacing: -0.01em;
   color: #000;
   margin: 0 0 0.75rem;
+  position: sticky;
+  top: var(--nav-h, 49px);
+  background: #fcfbf5;
+  padding: 0.6rem 0;
+  z-index: 9;
 }
 
 .brand-guide-section ul {
@@ -457,8 +487,14 @@
 .palette-groups {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.75rem;
   margin-bottom: 1.25rem;
+}
+
+.palette-table-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .palette-group-name {
@@ -466,63 +502,63 @@
   font-size: 0.78rem;
   font-weight: 700;
   color: #000;
-  margin-bottom: 0.4rem;
   letter-spacing: 0.02em;
 }
 
-.palette-shades {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.palette-shade {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-  cursor: pointer;
-}
-
-.palette-shade:hover .palette-shade-color {
-  transform: scale(1.06);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.palette-shade-color {
+.palette-table {
   width: 100%;
-  aspect-ratio: 1;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.15s, box-shadow 0.15s;
+  border-collapse: collapse;
+  font-size: 0.8rem;
 }
 
-.palette-copied {
+.palette-table th {
+  text-align: left;
   font-size: 0.65rem;
   font-weight: 700;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.55);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #000;
+  opacity: 0.4;
+  padding: 0.4rem 0.75rem 0.4rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.palette-shade-label {
-  font-size: 0.7rem;
+.palette-th-swatch {
+  width: 36px;
+}
+
+.palette-table td {
+  padding: 0.4rem 0.75rem 0.4rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  vertical-align: middle;
+}
+
+.palette-table-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.palette-table-label {
   font-weight: 600;
   color: #000;
-  opacity: 0.5;
 }
 
-.palette-shade-hex {
-  font-size: 0.68rem;
+.palette-table-value {
   font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.72rem;
   color: #3d3c36;
   text-transform: uppercase;
+}
+
+.palette-copyable {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.palette-copyable:hover {
+  opacity: 0.6;
 }
 
 /* ── Accordion ── */
@@ -581,8 +617,243 @@
   padding: 0.2rem 0;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 768px) {
+  .brand-guide-body {
+    flex-direction: column;
+  }
+
+  .brand-guide-toc {
+    position: static;
+    width: 100%;
+    border-bottom: 1px solid #a7a59a;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .brand-guide-toc ol {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.5rem;
+  }
+}
+
+/* ── Logo Misuse ── */
+
+.misuse-showcase {
+  margin-bottom: 1rem;
+}
+
+.misuse-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.misuse-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.misuse-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #b5564e;
+}
+
+.misuse-example {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.misuse-demo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.misuse-demo::after {
+  content: '✕';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #b5564e;
+  line-height: 1;
+}
+
+.misuse-demo-light {
+  background: #F4F2EA;
+}
+
+.misuse-logo-svg {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  color: #31353B;
+}
+
+.misuse-logo-stacked {
+  max-width: 80px;
+}
+
+.misuse-logo-mark {
+  max-width: 56px;
+}
+
+.misuse-crop-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.misuse-crop-wrapper .misuse-logo-mark {
+  width: 72px;
+  max-width: none;
+  flex-shrink: 0;
+}
+
+.misuse-caption {
+  font-size: 0.72rem;
+  color: #3d3c36;
+  opacity: 0.7;
+  line-height: 1.45;
+}
+
+@media (max-width: 480px) {
+  .misuse-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Typography ── */
+
+.typo-showcase {
+  margin-bottom: 1rem;
+}
+
+.typo-families {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.typo-family {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.typo-family-role {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  opacity: 0.45;
+}
+
+.typo-family-name {
+  font-size: 1.75rem;
+  color: #000;
+  line-height: 1.2;
+}
+
+.typo-family-meta {
+  font-size: 0.75rem;
+  color: #3d3c36;
+  opacity: 0.6;
+}
+
+.typo-specimen {
+  margin: 0.75rem 0 0.5rem;
+  line-height: 1.5;
+  color: #31353B;
+  word-break: break-all;
+}
+
+.typo-family-fallback {
+  font-size: 0.7rem;
+  color: #3d3c36;
+  opacity: 0.5;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+.typo-scale {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1.5rem;
+}
+
+.typo-scale-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  opacity: 0.45;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.typo-scale-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.typo-scale-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.typo-scale-sample {
+  flex: 1;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.typo-scale-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  flex-shrink: 0;
+}
+
+.typo-scale-level {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.typo-scale-specs {
+  font-size: 0.65rem;
+  color: #3d3c36;
+  opacity: 0.5;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .typo-families {
     grid-template-columns: 1fr;
   }
 }

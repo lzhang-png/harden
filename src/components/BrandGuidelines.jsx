@@ -27,23 +27,75 @@ function DownloadSvgButton({ containerRef, filename }) {
   );
 }
 
-function PaletteShade({ shade }) {
-  const [copied, setCopied] = useState(false);
+function hexToCmyk(hex) {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  const k = 1 - Math.max(r, g, b);
+  if (k === 1) return { c: 0, m: 0, y: 0, k: 100 };
+  const c = Math.round(((1 - r - k) / (1 - k)) * 100);
+  const m = Math.round(((1 - g - k) / (1 - k)) * 100);
+  const y = Math.round(((1 - b - k) / (1 - k)) * 100);
+  return { c, m, y, k: Math.round(k * 100) };
+}
 
-  const handleCopy = useCallback(() => {
-    navigator.clipboard.writeText(shade.hex).then(() => {
+function CopyText({ className, value, children }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = useCallback((e) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(value).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1200);
     });
-  }, [shade.hex]);
+  }, [value]);
 
   return (
-    <div className="palette-shade" onClick={handleCopy} title={`Copy ${shade.hex}`}>
-      <div className="palette-shade-color" style={{ background: shade.hex }}>
-        {copied && <span className="palette-copied">Copied</span>}
-      </div>
-      <span className="palette-shade-label">{shade.label}</span>
-      <span className="palette-shade-hex">{shade.hex}</span>
+    <span className={`${className} palette-copyable`} onClick={handleCopy} title={`Copy ${value}`}>
+      {copied ? 'Copied' : children}
+    </span>
+  );
+}
+
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `${r}, ${g}, ${b}`;
+}
+
+function PaletteTable({ group }) {
+  return (
+    <div className="palette-table-group">
+      <span className="palette-group-name">{group.name}</span>
+      <table className="palette-table">
+        <thead>
+          <tr>
+            <th className="palette-th-swatch"></th>
+            <th>Shade</th>
+            <th>HEX</th>
+            <th>RGB</th>
+            <th>CMYK</th>
+          </tr>
+        </thead>
+        <tbody>
+          {group.shades.map((shade) => {
+            const cmyk = hexToCmyk(shade.hex);
+            const cmykStr = `${cmyk.c}, ${cmyk.m}, ${cmyk.y}, ${cmyk.k}`;
+            const rgbStr = hexToRgb(shade.hex);
+            return (
+              <tr key={shade.hex}>
+                <td>
+                  <div className="palette-table-swatch" style={{ background: shade.hex }} />
+                </td>
+                <td className="palette-table-label">{shade.label}</td>
+                <td><CopyText className="palette-table-value" value={shade.hex}>{shade.hex}</CopyText></td>
+                <td><CopyText className="palette-table-value" value={rgbStr}>{rgbStr}</CopyText></td>
+                <td><CopyText className="palette-table-value" value={cmykStr}>{cmykStr}</CopyText></td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -170,6 +222,7 @@ const sections = [
   {
     id: 'logo-misuse',
     title: 'Logo misuse',
+    showMisuse: true,
     items: [
       'Do not stretch, rotate, or distort',
       'Do not change the logo colors',
@@ -255,17 +308,16 @@ const sections = [
   {
     id: 'typography',
     title: 'Typography',
+    showTypography: true,
     items: [
-      'Primary typeface & weights',
-      'Secondary / body typeface',
-      'Monospace typeface (code & terminal)',
-      'Type scale & hierarchy (H1\u2013H6, body, caption)',
-      'Line-height & letter-spacing guidelines',
+      'Primary typeface: Newsreader Light — used for headlines and display text',
+      'Body typeface: Poppins Regular — used for body copy, UI labels, and captions',
+      'Fallback stacks for web and email',
     ],
     guide: [
       'Name every typeface and list the specific weights you license (e.g. Inter 400, 500, 600, 700).',
       'Show a specimen: the full alphabet, numerals, and a few special glyphs in each weight.',
-      'Present the type scale as a visual stack \u2014 each level (H1 down to caption) rendered at its actual size with font-size, line-height, and letter-spacing noted beside it.',
+      'Present the type scale as a visual stack — each level (H1 down to caption) rendered at its actual size with font-size, line-height, and letter-spacing noted beside it.',
       'If you use a monospace face for code blocks or terminals, show it in context (a small code snippet).',
       'Add a note on fallback font stacks for web and email.',
     ],
@@ -656,9 +708,206 @@ function LogoShowcase() {
   );
 }
 
-export default function BrandGuidelines() {
+function TypographyShowcase() {
+  const scale = [
+    { level: 'H1', size: '3rem', lh: '1.15', ls: '-0.02em', font: 'title' },
+    { level: 'H2', size: '2.25rem', lh: '1.2', ls: '-0.015em', font: 'title' },
+    { level: 'H3', size: '1.75rem', lh: '1.25', ls: '-0.01em', font: 'title' },
+    { level: 'H4', size: '1.25rem', lh: '1.3', ls: '-0.005em', font: 'title' },
+    { level: 'Body', size: '1rem', lh: '1.6', ls: '0', font: 'body' },
+    { level: 'Caption', size: '0.75rem', lh: '1.5', ls: '0.02em', font: 'body' },
+  ];
+
   return (
-    <div className="brand-guide">
+    <div className="typo-showcase">
+      <div className="typo-families">
+        <div className="typo-family">
+          <span className="typo-family-role">Display / Headlines</span>
+          <span className="typo-family-name" style={{ fontFamily: "'Newsreader', 'Georgia', serif", fontWeight: 300 }}>
+            Newsreader Light
+          </span>
+          <span className="typo-family-meta">Weight 300 · Optical size 6–72</span>
+          <p className="typo-specimen" style={{ fontFamily: "'Newsreader', serif", fontWeight: 300, fontSize: '1.5rem' }}>
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+            abcdefghijklmnopqrstuvwxyz<br />
+            0123456789 &amp; !? @ # $ %
+          </p>
+          <span className="typo-family-fallback">Fallback: Georgia, 'Times New Roman', serif</span>
+        </div>
+
+        <div className="typo-family">
+          <span className="typo-family-role">Body / UI</span>
+          <span className="typo-family-name" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}>
+            Poppins Regular
+          </span>
+          <span className="typo-family-meta">Weight 400 · Also available in 300, 500, 600, 700</span>
+          <p className="typo-specimen" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400, fontSize: '1.25rem' }}>
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+            abcdefghijklmnopqrstuvwxyz<br />
+            0123456789 &amp; !? @ # $ %
+          </p>
+          <span className="typo-family-fallback">Fallback: 'Helvetica Neue', Arial, sans-serif</span>
+        </div>
+      </div>
+
+      <div className="typo-scale">
+        <span className="typo-scale-title">Type scale</span>
+        <div className="typo-scale-stack">
+          {scale.map((s) => (
+            <div className="typo-scale-row" key={s.level}>
+              <span
+                className="typo-scale-sample"
+                style={{
+                  fontFamily: s.font === 'title' ? "'Newsreader', serif" : "'Poppins', sans-serif",
+                  fontWeight: s.font === 'title' ? 300 : 400,
+                  fontSize: s.size,
+                  lineHeight: s.lh,
+                  letterSpacing: s.ls,
+                }}
+              >
+                {s.level === 'Body' || s.level === 'Caption'
+                  ? 'The quick brown fox jumps over the lazy dog'
+                  : 'Harden Security'}
+              </span>
+              <div className="typo-scale-meta">
+                <span className="typo-scale-level">{s.level}</span>
+                <span className="typo-scale-specs">{s.size} / {s.lh} / {s.ls}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LogoMisuseShowcase() {
+  const misuses = [
+    {
+      label: 'Do not stretch or distort',
+      render: (
+        <div className="misuse-example">
+          <div className="misuse-demo misuse-demo-light">
+            <div style={{ transform: 'scaleX(1.5)' }}>
+              <HardenLogo className="misuse-logo-svg" />
+            </div>
+          </div>
+          <span className="misuse-caption">Stretching distorts proportions and weakens recognition.</span>
+        </div>
+      ),
+    },
+    {
+      label: 'Do not rotate',
+      render: (
+        <div className="misuse-example">
+          <div className="misuse-demo misuse-demo-light">
+            <div style={{ transform: 'rotate(15deg)' }}>
+              <HardenLogoStacked className="misuse-logo-svg misuse-logo-stacked" />
+            </div>
+          </div>
+          <span className="misuse-caption">The logo must always appear level and upright.</span>
+        </div>
+      ),
+    },
+    {
+      label: 'Do not recolor',
+      render: (
+        <div className="misuse-example">
+          <div className="misuse-demo misuse-demo-light">
+            <HardenLogo className="misuse-logo-svg" markColor="#2E8B57" />
+          </div>
+          <span className="misuse-caption">Only use approved brand colors for the logomark.</span>
+        </div>
+      ),
+    },
+    {
+      label: 'Do not add effects',
+      render: (
+        <div className="misuse-example">
+          <div className="misuse-demo misuse-demo-light">
+            <div style={{ filter: 'drop-shadow(4px 4px 6px rgba(0,0,0,0.5))' }}>
+              <HardenLogomark className="misuse-logo-svg misuse-logo-mark" />
+            </div>
+          </div>
+          <span className="misuse-caption">No drop shadows, glows, outlines, or gradients.</span>
+        </div>
+      ),
+    },
+    {
+      label: 'Do not place on busy backgrounds',
+      render: (
+        <div className="misuse-example">
+          <div className="misuse-demo" style={{ background: 'repeating-conic-gradient(#ccc 0% 25%, #eee 0% 50%) 0 0 / 20px 20px' }}>
+            <HardenLogo className="misuse-logo-svg" />
+          </div>
+          <span className="misuse-caption">Ensure sufficient contrast with a clean background.</span>
+        </div>
+      ),
+    },
+    {
+      label: 'Do not crop the logo',
+      render: (
+        <div className="misuse-example">
+          <div className="misuse-demo misuse-demo-light">
+            <div className="misuse-crop-wrapper">
+              <HardenLogomark className="misuse-logo-svg misuse-logo-mark" />
+            </div>
+          </div>
+          <span className="misuse-caption">Never clip, crop, or partially obscure the logo.</span>
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <div className="misuse-showcase">
+      <div className="misuse-grid">
+        {misuses.map((m) => (
+          <div className="misuse-card" key={m.label}>
+            <span className="misuse-label">{m.label}</span>
+            {m.render}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function BrandGuidelines() {
+  const [activeId, setActiveId] = useState(sections[0]?.id);
+  const guideRef = useRef(null);
+
+  useEffect(() => {
+    const updateNavHeight = () => {
+      const nav = document.querySelector('.app-nav');
+      const h = nav ? nav.getBoundingClientRect().height : 0;
+      guideRef.current?.style.setProperty('--nav-h', `${h}px`);
+    };
+    updateNavHeight();
+    window.addEventListener('resize', updateNavHeight);
+    return () => window.removeEventListener('resize', updateNavHeight);
+  }, []);
+
+  useEffect(() => {
+    const els = sections.map((s) => document.getElementById(s.id)).filter(Boolean);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length) {
+          const top = visible.reduce((a, b) =>
+            a.boundingClientRect.top < b.boundingClientRect.top ? a : b
+          );
+          setActiveId(top.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -60% 0px', threshold: 0 }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="brand-guide" ref={guideRef}>
       <header className="brand-guide-header">
         <h1>Brand Guidelines</h1>
         <p>
@@ -667,55 +916,60 @@ export default function BrandGuidelines() {
         </p>
       </header>
 
-      <div className="brand-guide-toc">
-        <span className="brand-guide-toc-label">Contents</span>
-        <ol>
-          {sections.map((s) => (
-            <li key={s.id}>
-              <a href={`#${s.id}`}>{s.title}</a>
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      {sections.map((s) => (
-        <section key={s.id} id={s.id} className="brand-guide-section">
-          <h2>{s.title}</h2>
-
-          {s.showLogo && <LogoShowcase />}
-
-          {s.showClearSpace && <ClearSpaceShowcase />}
-
-          {s.palette && (
-            <div className="palette-groups">
-              {s.palette.map((group) => (
-                <div className="palette-group" key={group.name}>
-                  <span className="palette-group-name">{group.name}</span>
-                  <div className="palette-shades">
-                    {group.shades.map((shade) => (
-                      <PaletteShade key={shade.hex} shade={shade} />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <ul>
-            {s.items.map((item, i) => (
-              <li key={i}>{item}</li>
+      <div className="brand-guide-body">
+        <nav className="brand-guide-toc">
+          <ol>
+            {sections.map((s) => (
+              <li key={s.id}>
+                <a
+                  href={`#${s.id}`}
+                  className={activeId === s.id ? 'toc-active' : ''}
+                >
+                  {s.title}
+                </a>
+              </li>
             ))}
-          </ul>
-          <details className="brand-guide-accordion">
-            <summary>How to populate this section</summary>
-            <ol className="brand-guide-steps">
-              {s.guide.map((step, i) => (
-                <li key={i}>{step}</li>
-              ))}
-            </ol>
-          </details>
-        </section>
-      ))}
+          </ol>
+        </nav>
+
+        <main className="brand-guide-content">
+          {sections.map((s) => (
+            <section key={s.id} id={s.id} className="brand-guide-section">
+              <h2>{s.title}</h2>
+
+              {s.showLogo && <LogoShowcase />}
+
+              {s.showClearSpace && <ClearSpaceShowcase />}
+
+              {s.showMisuse && <LogoMisuseShowcase />}
+
+              {s.showTypography && <TypographyShowcase />}
+
+              {s.palette && (
+                <div className="palette-groups">
+                  {s.palette.map((group) => (
+                    <PaletteTable key={group.name} group={group} />
+                  ))}
+                </div>
+              )}
+
+              <ul>
+                {s.items.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+              <details className="brand-guide-accordion">
+                <summary>How to populate this section</summary>
+                <ol className="brand-guide-steps">
+                  {s.guide.map((step, i) => (
+                    <li key={i}>{step}</li>
+                  ))}
+                </ol>
+              </details>
+            </section>
+          ))}
+        </main>
+      </div>
     </div>
   );
 }
