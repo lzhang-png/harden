@@ -1,4 +1,9 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
+import {
+  Shield, Lock, Key, Eye, EyeOff, Search, Settings, User, Users,
+  Bell, Mail, ChevronRight, ArrowRight, Check, X, AlertTriangle,
+  Info, ExternalLink, Download, Upload, Copy, Trash2, Edit, Plus,
+} from 'lucide-react';
 import './BrandGuidelines.css';
 
 function DownloadSvgButton({ containerRef, filename }) {
@@ -325,33 +330,37 @@ const sections = [
   {
     id: 'iconography',
     title: 'Iconography',
+    showIconography: true,
     items: [
-      'Icon style (outline, filled, duotone)',
-      'Icon grid & sizing',
-      'Stroke weight & corner radius',
-      'Usage context (UI, marketing, product)',
+      'Library: Lucide — open-source, consistent line icons',
+      'Style: Outline only (no filled or duotone variants)',
+      'Stroke weight: 2 px at 24×24 default size',
+      'Corner radius: 2 px for rounded joins',
+      'Touch target: minimum 44×44 px padding around icons in interactive contexts',
     ],
     guide: [
       'Pick or reference an icon library (e.g. Phosphor, Lucide) and state the chosen style variant (outline, filled, duotone).',
-      'Show the icon grid \u2014 the bounding box, safe area, and key-shape templates (circle, square, landscape, portrait).',
+      'Show the icon grid — the bounding box, safe area, and key-shape templates (circle, square, landscape, portrait).',
       'Specify stroke weight (e.g. 1.5 px) and corner radius (e.g. 2 px) so custom icons stay consistent.',
-      'Provide a sample sheet of 12\u201316 commonly used icons rendered on the grid.',
+      'Provide a sample sheet of 12–16 commonly used icons rendered on the grid.',
       'Note sizing rules: default size in UI (e.g. 20 px), touch-target padding, and when to scale up for marketing.',
     ],
   },
   {
     id: 'imagery',
     title: 'Imagery & photography',
+    showImagery: true,
     items: [
-      'Photography style & art direction',
-      'Illustration style',
-      'Image treatment (overlays, crops, filters)',
-      "Do\u2019s and don\u2019ts for stock imagery",
+      'Style: Medieval fortress-themed, AI-generated illustration',
+      'Mood: Heroic, golden, warm, protective, authoritative',
+      'Palette: Gold and warm metallics dominate; crimson accents for royalty and power',
+      'Subjects: Knights, sentinels, fortresses, castles, forges — always tied to security and defense metaphors',
+      'Treatment: High detail, painterly rendering, dramatic lighting with warm tones',
     ],
     guide: [
-      'Describe the photographic mood in 3\u20135 adjectives (e.g. "bright, candid, documentary, warm, human").',
-      'Provide 4\u20136 reference photos that embody the style so contributors can match the feel.',
-      'If you use illustrations, describe the technique (flat vector, isometric, hand-drawn) and show 2\u20133 examples.',
+      'Describe the photographic mood in 3–5 adjectives (e.g. "bright, candid, documentary, warm, human").',
+      'Provide 4–6 reference photos that embody the style so contributors can match the feel.',
+      'If you use illustrations, describe the technique (flat vector, isometric, hand-drawn) and show 2–3 examples.',
       'Document any standard treatments: brand-color overlays, duotone filters, rounded-corner masks, etc.',
       'List stock-photo rules: no staged handshakes, no overly glossy offices, prefer real-world diversity.',
     ],
@@ -777,6 +786,168 @@ function TypographyShowcase() {
           ))}
         </div>
       </div>
+
+      <div className="typo-links">
+        <span className="typo-links-label">Google Fonts</span>
+        <a href="https://fonts.google.com/specimen/Newsreader" target="_blank" rel="noopener noreferrer">Newsreader <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 1.5H2C1.72386 1.5 1.5 1.72386 1.5 2V10C1.5 10.2761 1.72386 10.5 2 10.5H10C10.2761 10.5 10.5 10.2761 10.5 10V8.5M7 1.5H10.5V5M10.5 1.5L5.5 6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+        <a href="https://fonts.google.com/specimen/Poppins" target="_blank" rel="noopener noreferrer">Poppins <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 1.5H2C1.72386 1.5 1.5 1.72386 1.5 2V10C1.5 10.2761 1.72386 10.5 2 10.5H10C10.2761 10.5 10.5 10.2761 10.5 10V8.5M7 1.5H10.5V5M10.5 1.5L5.5 6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+      </div>
+    </div>
+  );
+}
+
+const IMAGERY_EXAMPLES = [
+  { src: '/imagery/sentinel.png', title: 'The Sentinel', desc: 'A golden knight standing guard — embodies vigilance and frontline defense.', prompt: 'A golden armored knight standing guard with a shield bearing an ornate crest, overlooking from a stone battlement. Painterly digital illustration, warm golden lighting, medieval fantasy style, highly detailed metalwork and engravings.' },
+  { src: '/imagery/kingdom.png', title: 'The Kingdom', desc: 'A king overlooking the realm — represents authority and oversight.', prompt: 'A golden-armored king standing on a castle balcony overlooking a medieval town with half-timbered houses and cobblestone streets. Wearing a golden crown and crimson cape. Warm afternoon light, painterly digital art, epic fantasy atmosphere.' },
+  { src: '/imagery/fortress.png', title: 'The Fortress', desc: 'A fortified castle layout — symbolizes layered, structured security.', prompt: 'An overhead angled view of a fantasy medieval fortress kingdom map. Multiple castle towers with battlements connected by stone bridges over dark water. Strategic defensive layout with a central fortified castle. Warm golden color palette with deep navy blue water. Painterly digital illustration with visible brushstrokes, mountains in the background. Classical painting technique, atmospheric and rich in texture.' },
+  { src: '/imagery/forge.png', title: 'The Forge', desc: 'A knight at the anvil — conveys craftsmanship and building resilience.', prompt: 'A golden-armored knight working at a blacksmith forge, hammering on an anvil with sparks flying. Stone workshop with a roaring fire, flowers and vines growing at the entrance. Warm dramatic lighting, painterly digital illustration, medieval fantasy style.' },
+];
+
+function ImageryShowcase() {
+  const [copiedIdx, setCopiedIdx] = useState(null);
+
+  const handleCopyPrompt = useCallback((prompt, idx) => {
+    navigator.clipboard.writeText(prompt).then(() => {
+      setCopiedIdx(idx);
+      setTimeout(() => setCopiedIdx(null), 1200);
+    });
+  }, []);
+
+  return (
+    <div className="imagery-showcase">
+      <div className="imagery-grid">
+        {IMAGERY_EXAMPLES.map((img, idx) => (
+          <div className="imagery-card" key={img.title}>
+            <div className="imagery-img-wrap">
+              <img src={img.src} alt={img.title} className="imagery-img" />
+            </div>
+            <span className="imagery-title">{img.title}</span>
+            <span className="imagery-desc">{img.desc}</span>
+            <div className="imagery-prompt">
+              <span className="imagery-prompt-label">AI Prompt</span>
+              <p className="imagery-prompt-text">{img.prompt}</p>
+              <button
+                className="imagery-prompt-copy"
+                onClick={() => handleCopyPrompt(img.prompt, idx)}
+              >
+                {copiedIdx === idx ? 'Copied' : 'Copy prompt'}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="imagery-social-ads">
+        <span className="imagery-social-ads-label">Social ad examples</span>
+        <div className="imagery-ad-grid">
+          <img src="/imagery/ad-knight.png" alt="Harden your deployment, like a knight" className="imagery-ad-flat" />
+          <img src="/imagery/ad-king.png" alt="Oversees your deployment, like a king" className="imagery-ad-flat" />
+          <img src="/imagery/ad-fortress.png" alt="Enterprise security for vibe-coded apps" className="imagery-ad-flat" />
+          <img src="/imagery/ad-forge.png" alt="Secure your app, in house" className="imagery-ad-flat" />
+        </div>
+      </div>
+
+      <div className="imagery-prompt-template">
+        <span className="imagery-prompt-template-label">Prompt template</span>
+        <p className="imagery-prompt-template-text">
+          A [subject in golden armor/medieval setting], [action or pose], [environment details].
+          Warm golden lighting, painterly digital illustration, medieval fantasy style,
+          highly detailed metalwork, [mood: heroic / protective / authoritative].
+          Color palette: gold metallics, warm earth tones, crimson accents.
+        </p>
+        <button
+          className="imagery-prompt-copy"
+          onClick={() => handleCopyPrompt(
+            'A [subject in golden armor/medieval setting], [action or pose], [environment details]. Warm golden lighting, painterly digital illustration, medieval fantasy style, highly detailed metalwork, [mood: heroic / protective / authoritative]. Color palette: gold metallics, warm earth tones, crimson accents.',
+            'template'
+          )}
+        >
+          {copiedIdx === 'template' ? 'Copied' : 'Copy template'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const ICON_SET = [
+  { name: 'Shield', Icon: Shield },
+  { name: 'Lock', Icon: Lock },
+  { name: 'Key', Icon: Key },
+  { name: 'Eye', Icon: Eye },
+  { name: 'EyeOff', Icon: EyeOff },
+  { name: 'Search', Icon: Search },
+  { name: 'Settings', Icon: Settings },
+  { name: 'User', Icon: User },
+  { name: 'Users', Icon: Users },
+  { name: 'Bell', Icon: Bell },
+  { name: 'Mail', Icon: Mail },
+  { name: 'ChevronRight', Icon: ChevronRight },
+  { name: 'ArrowRight', Icon: ArrowRight },
+  { name: 'Check', Icon: Check },
+  { name: 'X', Icon: X },
+  { name: 'AlertTriangle', Icon: AlertTriangle },
+  { name: 'Info', Icon: Info },
+  { name: 'ExternalLink', Icon: ExternalLink },
+  { name: 'Download', Icon: Download },
+  { name: 'Upload', Icon: Upload },
+  { name: 'Copy', Icon: Copy },
+  { name: 'Trash2', Icon: Trash2 },
+  { name: 'Edit', Icon: Edit },
+  { name: 'Plus', Icon: Plus },
+];
+
+function IconographyShowcase() {
+  return (
+    <div className="icon-showcase">
+      <div className="icon-specs">
+        <div className="icon-spec">
+          <span className="icon-spec-label">Library</span>
+          <span className="icon-spec-value">
+            <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer">
+              Lucide <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 1.5H2C1.72386 1.5 1.5 1.72386 1.5 2V10C1.5 10.2761 1.72386 10.5 2 10.5H10C10.2761 10.5 10.5 10.2761 10.5 10V8.5M7 1.5H10.5V5M10.5 1.5L5.5 6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </a>
+          </span>
+        </div>
+        <div className="icon-spec">
+          <span className="icon-spec-label">Style</span>
+          <span className="icon-spec-value">Outline (line)</span>
+        </div>
+        <div className="icon-spec">
+          <span className="icon-spec-label">Stroke</span>
+          <span className="icon-spec-value">2 px</span>
+        </div>
+        <div className="icon-spec">
+          <span className="icon-spec-label">Default size</span>
+          <span className="icon-spec-value">24 × 24 px</span>
+        </div>
+        <div className="icon-spec">
+          <span className="icon-spec-label">Corner radius</span>
+          <span className="icon-spec-value">2 px</span>
+        </div>
+      </div>
+
+      <div className="icon-grid">
+        {ICON_SET.map(({ name, Icon }) => (
+          <div className="icon-cell" key={name}>
+            <div className="icon-cell-box">
+              <Icon size={24} strokeWidth={2} />
+            </div>
+            <span className="icon-cell-name">{name}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="icon-sizes">
+        <span className="icon-sizes-label">Size examples</span>
+        <div className="icon-sizes-row">
+          {[16, 20, 24, 32, 48].map((s) => (
+            <div className="icon-size-example" key={s}>
+              <Shield size={s} strokeWidth={2} />
+              <span className="icon-size-value">{s}px</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -944,6 +1115,10 @@ export default function BrandGuidelines() {
               {s.showMisuse && <LogoMisuseShowcase />}
 
               {s.showTypography && <TypographyShowcase />}
+
+              {s.showIconography && <IconographyShowcase />}
+
+              {s.showImagery && <ImageryShowcase />}
 
               {s.palette && (
                 <div className="palette-groups">
