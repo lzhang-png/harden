@@ -192,66 +192,21 @@ const sections = [
     id: 'logo',
     title: 'Logo',
     showLogo: true,
-    items: [
-      'Primary logo (horizontal lockup)',
-      'Stacked / vertical lockup',
-      'Logomark (standalone symbol)',
-      'Wordmark (logotype only)',
-    ],
-    guide: [
-      'Place each logo variant on its own row with a light background so the shape reads clearly.',
-      'Export every variant in SVG (scalable) and PNG at 1\u00d7, 2\u00d7, and 3\u00d7 for retina screens.',
-      'Show the logo on both light and dark backgrounds side by side so viewers can see how each version behaves.',
-      'Label each variant with its name (e.g. "Horizontal lockup") and a one-line description of when to use it: website header, app icon, social avatar, etc.',
-      'If the logo has a color version and a mono version, show both and note which is the default.',
-    ],
+    desc: 'The logo comes in horizontal, stacked, and logomark variants, each available in on-light, on-dark, and mono versions.',
   },
   {
     id: 'clear-space',
     title: 'Clear space & minimum size',
     showClearSpace: true,
-    items: [
-      'Minimum clear-space rules around the logo',
-      'Minimum reproduction size (print & digital)',
-    ],
-    guide: [
-      'Define clear space using a unit derived from the logo itself (e.g. "the height of the letter H in the wordmark"). This keeps it proportional at any scale.',
-      'A common rule of thumb: use 0.5\u00d7 to 1\u00d7 the height of the logomark (or one cap-height of the wordmark) as the minimum clear space on all four sides. Most brands land at 0.5\u00d7 for compact uses and 1\u00d7 as the ideal.',
-      'For example, if the mark renders at 40 px tall, nothing else should come within 20 px of any edge. Err generous \u2014 too much space never hurts recognition; too little makes the logo feel cramped.',
-      'Draw a diagram showing the logo centered inside its clear-space boundary with dimension lines.',
-      'Sanity-check at the smallest allowed size: squint at it \u2014 can you clearly distinguish it from surrounding elements? On mobile, does it still have breathing room? Print it and hold at arm\u2019s length \u2014 if the boundary feels tight, increase the space.',
-      'Set a minimum width for digital (e.g. 80 px) and a minimum width for print (e.g. 20 mm). Below these sizes the logo becomes illegible.',
-      'If you have a simplified "small use" version (e.g. logomark only), note the threshold where you switch to it.',
-    ],
   },
   {
     id: 'logo-misuse',
     title: 'Logo misuse',
     showMisuse: true,
-    items: [
-      'Do not stretch, rotate, or distort',
-      'Do not change the logo colors',
-      'Do not place on busy or low-contrast backgrounds',
-      'Do not add effects (drop shadows, outlines, gradients)',
-      'Do not rearrange or modify internal elements',
-    ],
-    guide: [
-      'Create a grid of "don\u2019t" examples \u2014 each one showing a single violation with a red \u00d7 or strikethrough.',
-      'Use the actual logo file so the mistakes look realistic, not hypothetical.',
-      'Keep the list to 5\u20138 violations; too many dilutes the message.',
-      'Pair each violation with a short reason (e.g. "Stretching distorts proportions and weakens recognition").',
-    ],
   },
   {
     id: 'color-palette',
     title: 'Color palette',
-    items: [
-      'Primary brand colors (hex, RGB, HSL)',
-      'Secondary / accent colors',
-      'Neutral & background tones',
-      'Color contrast & accessibility ratios',
-      'Dark-mode palette (if applicable)',
-    ],
     palette: [
       {
         name: 'Crimson',
@@ -302,153 +257,28 @@ const sections = [
         ],
       },
     ],
-    guide: [
-      'Show each color as a large swatch (at least 80 \u00d7 80 px) with its name, hex, RGB, and HSL values underneath.',
-      'Group colors into tiers: primary (1\u20132 colors), secondary/accent (1\u20133), neutrals (3\u20135 from white to dark).',
-      'For every text-on-background combination, list the WCAG contrast ratio and whether it passes AA or AAA.',
-      'If you support dark mode, show the mapped equivalents: which light-mode color becomes which dark-mode color.',
-      'Include a "color in context" example \u2014 a small UI snippet or marketing card rendered with the palette so it feels tangible.',
-    ],
   },
   {
     id: 'typography',
     title: 'Typography',
     showTypography: true,
-    items: [
-      'Primary typeface: Newsreader Light — used for headlines and display text',
-      'Body typeface: Poppins Regular — used for body copy, UI labels, and captions',
-      'Fallback stacks for web and email',
-    ],
-    guide: [
-      'Name every typeface and list the specific weights you license (e.g. Inter 400, 500, 600, 700).',
-      'Show a specimen: the full alphabet, numerals, and a few special glyphs in each weight.',
-      'Present the type scale as a visual stack — each level (H1 down to caption) rendered at its actual size with font-size, line-height, and letter-spacing noted beside it.',
-      'If you use a monospace face for code blocks or terminals, show it in context (a small code snippet).',
-      'Add a note on fallback font stacks for web and email.',
-    ],
   },
   {
     id: 'iconography',
     title: 'Iconography',
     showIconography: true,
-    items: [
-      'Library: Lucide — open-source, consistent line icons',
-      'Style: Outline only (no filled or duotone variants)',
-      'Stroke weight: 2 px at 24×24 default size',
-      'Corner radius: 2 px for rounded joins',
-      'Touch target: minimum 44×44 px padding around icons in interactive contexts',
-    ],
-    guide: [
-      'Pick or reference an icon library (e.g. Phosphor, Lucide) and state the chosen style variant (outline, filled, duotone).',
-      'Show the icon grid — the bounding box, safe area, and key-shape templates (circle, square, landscape, portrait).',
-      'Specify stroke weight (e.g. 1.5 px) and corner radius (e.g. 2 px) so custom icons stay consistent.',
-      'Provide a sample sheet of 12–16 commonly used icons rendered on the grid.',
-      'Note sizing rules: default size in UI (e.g. 20 px), touch-target padding, and when to scale up for marketing.',
-    ],
   },
   {
     id: 'imagery',
     title: 'Imagery & photography',
     showImagery: true,
-    items: [
-      'Style: Medieval fortress-themed, AI-generated illustration',
-      'Mood: Heroic, golden, warm, protective, authoritative',
-      'Palette: Gold and warm metallics dominate; crimson accents for royalty and power',
-      'Subjects: Knights, sentinels, fortresses, castles, forges — always tied to security and defense metaphors',
-      'Treatment: High detail, painterly rendering, dramatic lighting with warm tones',
-    ],
-    guide: [
-      'Describe the photographic mood in 3–5 adjectives (e.g. "bright, candid, documentary, warm, human").',
-      'Provide 4–6 reference photos that embody the style so contributors can match the feel.',
-      'If you use illustrations, describe the technique (flat vector, isometric, hand-drawn) and show 2–3 examples.',
-      'Document any standard treatments: brand-color overlays, duotone filters, rounded-corner masks, etc.',
-      'List stock-photo rules: no staged handshakes, no overly glossy offices, prefer real-world diversity.',
-    ],
+    desc: 'Medieval fortress-themed, painterly AI illustrations in warm golds and crimsons. Every subject ties back to a security metaphor.',
   },
   {
     id: 'voice-tone',
     title: 'Voice & tone',
-    items: [
-      'Brand personality attributes',
-      'Writing principles (concise, direct, human)',
-      'Tone by context (marketing, product UI, support)',
-      'Terminology & word list',
-    ],
-    guide: [
-      'Define 3\u20134 personality traits (e.g. "Expert but approachable, concise, no jargon for jargon\u2019s sake").',
-      'Write a "this, not that" table: preferred phrasing on the left, avoided phrasing on the right.',
-      'Show how tone shifts by context: a marketing headline vs. an error message vs. a support reply \u2014 same voice, different warmth.',
-      'Maintain a living word list: approved terms ("sign in" not "log in"), banned buzzwords, and product-specific vocabulary.',
-    ],
-  },
-  {
-    id: 'layout',
-    title: 'Layout & spacing',
-    items: [
-      'Grid system (columns, gutters, margins)',
-      'Spacing scale (4 px / 8 px base unit)',
-      'Section composition rules',
-      'Responsive breakpoints',
-    ],
-    guide: [
-      'Document your column grid: number of columns (e.g. 12), gutter width, and outer margins at each breakpoint.',
-      'Define a spacing scale based on a base unit (4 px or 8 px) and list named tokens (xs, sm, md, lg, xl, 2xl).',
-      'Show 2\u20133 example compositions \u2014 a hero section, a feature grid, a form \u2014 with spacing values annotated.',
-      'List responsive breakpoints with their pixel values and what layout changes at each (e.g. 640 px: single column, 1024 px: sidebar appears).',
-    ],
-  },
-  {
-    id: 'motion',
-    title: 'Motion & animation',
-    items: [
-      'Easing curves & duration tokens',
-      'Entry / exit transitions',
-      'Micro-interactions (hover, focus, active)',
-      'Loading & skeleton states',
-    ],
-    guide: [
-      'Define 2\u20133 easing curves with their cubic-bezier values and when to use each (e.g. "ease-out for entrances, ease-in for exits").',
-      'Set duration tokens: fast (150 ms), normal (250 ms), slow (400 ms). Explain which UI actions map to which.',
-      'Show micro-interaction specs: button hover scale, focus ring animation, toggle slide distance.',
-      'Document loading patterns: skeleton shimmer speed, spinner size, and when to use each.',
-      'If possible, embed or link to a short video/GIF demonstrating the motion language.',
-    ],
-  },
-  {
-    id: 'co-branding',
-    title: 'Co-branding & partnerships',
-    items: [
-      'Partner logo placement rules',
-      'Lock-up spacing with third-party marks',
-      'Minimum size when paired',
-      'Approved & prohibited pairings',
-    ],
-    guide: [
-      'Show a diagram of the co-branded lock-up: your logo on the left, a vertical divider, the partner logo on the right, with spacing values labeled.',
-      'Define a minimum clear space between the two marks (e.g. 1.5\u00d7 the logo\u2019s unit).',
-      'State whether the partner logo should match your logo\u2019s height or optical weight.',
-      'List any prohibited pairings (e.g. competitor logos, politically sensitive organizations).',
-      'Provide a downloadable template (AI/Figma) with placeholders so partners can drop in their own mark.',
-    ],
-  },
-  {
-    id: 'assets',
-    title: 'Asset downloads',
-    items: [
-      'Logo files (SVG, PNG, EPS)',
-      'Color swatches (ASE, CLR)',
-      'Font files or license links',
-      'Social media templates',
-      'Presentation & document templates',
-    ],
-    guide: [
-      'Organize files into folders: /logos, /colors, /fonts, /templates.',
-      'For logos, include: SVG (web), PNG at 1\u00d7/2\u00d7/3\u00d7 (screens), EPS or PDF (print), and a favicon .ico/.png set.',
-      'Export color swatches as .ase (Adobe), .clr (macOS), and a JSON/CSS-variables file for developers.',
-      'Link to the font source (Google Fonts URL, foundry license page, or self-hosted files).',
-      'Provide ready-to-use templates: social cover images (LinkedIn, X, Open Graph), slide deck (Google Slides / Keynote), and a letterhead or one-pager.',
-      'Add a version number and last-updated date so people know they have the latest kit.',
-    ],
+    showVoiceTone: true,
+    desc: 'Authoritative, direct, and protective. Medieval metaphors keep the copy vivid while the tone stays concise.',
   },
 ];
 
@@ -491,7 +321,7 @@ function ClearSpaceShowcase() {
     <div className="clearspace-showcase">
       <p className="clearspace-intro">
         Clear space is defined as <strong>0.5× the height of the logomark (H)</strong> on all sides.
-        Nothing — text, images, borders, or other logos — should enter this zone.
+        Nothing (text, images, borders, or other logos) should enter this zone.
       </p>
       <div className="clearspace-grid">
         <ClearSpaceDiagram label="Horizontal lockup">
@@ -611,7 +441,7 @@ function LogoShowcase() {
         </div>
       </div>
       <div className="brand-guide-logo-row">
-        <span className="brand-guide-logo-variant-label">Horizontal lockup — mono</span>
+        <span className="brand-guide-logo-variant-label">Horizontal lockup, mono</span>
         <div className="brand-guide-logo-pair">
           <div className="brand-guide-logo-cell">
             <div className="brand-guide-logo-light brand-guide-logo-mono" ref={hMonoLightRef}>
@@ -634,7 +464,7 @@ function LogoShowcase() {
         </div>
       </div>
       <div className="brand-guide-logo-row">
-        <span className="brand-guide-logo-variant-label">Stacked lockup — mono</span>
+        <span className="brand-guide-logo-variant-label">Stacked lockup, mono</span>
         <div className="brand-guide-logo-pair">
           <div className="brand-guide-logo-cell">
             <div className="brand-guide-logo-light brand-guide-logo-mono" ref={sMonoLightRef}>
@@ -657,7 +487,7 @@ function LogoShowcase() {
         </div>
       </div>
       <div className="brand-guide-logo-row">
-        <span className="brand-guide-logo-variant-label">Logomark — mono</span>
+        <span className="brand-guide-logo-variant-label">Logomark, mono</span>
         <div className="brand-guide-logo-pair">
           <div className="brand-guide-logo-cell">
             <div className="brand-guide-logo-light brand-guide-logo-mono" ref={mMonoLightRef}>
@@ -682,13 +512,6 @@ function LogoShowcase() {
 
       <div className="brand-guide-logo-row">
         <span className="brand-guide-logo-variant-label">Favicon</span>
-        <p className="brand-guide-favicon-intro">
-          The favicon uses a dedicated 180×180 icon with extra internal padding for
-          legibility at small sizes. The minimum size is <strong>16×16 px</strong>.
-          Provide <strong>32×32</strong> for taskbars, <strong>180×180</strong> for
-          Apple touch icons, and <strong>512×512</strong> or larger for Google
-          search results.
-        </p>
 
         <div className="brand-guide-favicon-example">
           <div className="brand-guide-favicon-preview">
@@ -712,6 +535,102 @@ function LogoShowcase() {
             ))}
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+const BRAND_KEYWORDS = [
+  { concept: 'Security', metaphor: 'Knight, shield' },
+  { concept: 'Build', metaphor: 'Building the castle' },
+  { concept: 'Enterprise', metaphor: 'Map of connected castles' },
+  { concept: 'Governance', metaphor: 'King oversees the town' },
+  { concept: 'In House', metaphor: 'Forging inside the castle' },
+  { concept: 'Scan then fix', metaphor: 'Team of knights scouting' },
+];
+
+const VOICE_DONTS = [
+  { preferred: 'Harden your deployment', avoided: 'Utilize our hardening solution' },
+  { preferred: 'Runs in your VPC', avoided: 'Leverages your cloud infrastructure' },
+  { preferred: 'Fix vulnerabilities fast', avoided: 'Remediate security deficiencies efficiently' },
+  { preferred: 'Sign in', avoided: 'Log in / Login' },
+  { preferred: 'Set up', avoided: 'Configure / Provision' },
+  { preferred: 'Your app', avoided: 'Your application workload' },
+];
+
+function VoiceToneShowcase() {
+  return (
+    <div className="voice-tone-showcase">
+      <div className="voice-personality">
+        <span className="voice-section-label">Personality</span>
+        <div className="voice-traits">
+          <div className="voice-trait">
+            <span className="voice-trait-name">Authoritative</span>
+            <span className="voice-trait-desc">Speak with earned confidence. A fortress, not a sales pitch.</span>
+          </div>
+          <div className="voice-trait">
+            <span className="voice-trait-name">Direct</span>
+            <span className="voice-trait-desc">Say it in fewer words; cut jargon unless it adds precision.</span>
+          </div>
+          <div className="voice-trait">
+            <span className="voice-trait-name">Protective</span>
+            <span className="voice-trait-desc">Frame every feature as something that guards the user's work.</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="voice-metaphors">
+        <span className="voice-section-label">Brand metaphors</span>
+        <p className="voice-metaphors-intro">Every product concept maps to a medieval metaphor. Use these to keep copy vivid and consistent.</p>
+        <div className="voice-keyword-grid">
+          {BRAND_KEYWORDS.map((kw) => (
+            <div className="voice-keyword" key={kw.concept}>
+              <span className="voice-keyword-concept">{kw.concept}</span>
+              <span className="voice-keyword-metaphor">{kw.metaphor}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="voice-context">
+        <span className="voice-section-label">Tone by context</span>
+        <div className="voice-context-grid">
+          <div className="voice-context-card">
+            <span className="voice-context-type">Marketing</span>
+            <span className="voice-context-example">"Harden your deployment, like a knight."</span>
+            <span className="voice-context-note">Bold metaphors, punchy headlines, confident.</span>
+          </div>
+          <div className="voice-context-card">
+            <span className="voice-context-type">Product UI</span>
+            <span className="voice-context-example">"Scan complete. 2 issues found."</span>
+            <span className="voice-context-note">Neutral, brief, action-oriented.</span>
+          </div>
+          <div className="voice-context-card">
+            <span className="voice-context-type">Support</span>
+            <span className="voice-context-example">"We're looking into this. You'll hear back within the hour."</span>
+            <span className="voice-context-note">Warm, reassuring, no deflection.</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="voice-donts">
+        <span className="voice-section-label">This, not that</span>
+        <table className="voice-donts-table">
+          <thead>
+            <tr>
+              <th>Preferred</th>
+              <th>Avoid</th>
+            </tr>
+          </thead>
+          <tbody>
+            {VOICE_DONTS.map((row) => (
+              <tr key={row.preferred}>
+                <td className="voice-preferred">{row.preferred}</td>
+                <td className="voice-avoided">{row.avoided}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
@@ -797,10 +716,10 @@ function TypographyShowcase() {
 }
 
 const IMAGERY_EXAMPLES = [
-  { src: '/imagery/sentinel.png', title: 'The Sentinel', desc: 'A golden knight standing guard — embodies vigilance and frontline defense.', prompt: 'A golden armored knight standing guard with a shield bearing an ornate crest, overlooking from a stone battlement. Painterly digital illustration, warm golden lighting, medieval fantasy style, highly detailed metalwork and engravings.' },
-  { src: '/imagery/kingdom.png', title: 'The Kingdom', desc: 'A king overlooking the realm — represents authority and oversight.', prompt: 'A golden-armored king standing on a castle balcony overlooking a medieval town with half-timbered houses and cobblestone streets. Wearing a golden crown and crimson cape. Warm afternoon light, painterly digital art, epic fantasy atmosphere.' },
-  { src: '/imagery/fortress.png', title: 'The Fortress', desc: 'A fortified castle layout — symbolizes layered, structured security.', prompt: 'An overhead angled view of a fantasy medieval fortress kingdom map. Multiple castle towers with battlements connected by stone bridges over dark water. Strategic defensive layout with a central fortified castle. Warm golden color palette with deep navy blue water. Painterly digital illustration with visible brushstrokes, mountains in the background. Classical painting technique, atmospheric and rich in texture.' },
-  { src: '/imagery/forge.png', title: 'The Forge', desc: 'A knight at the anvil — conveys craftsmanship and building resilience.', prompt: 'A golden-armored knight working at a blacksmith forge, hammering on an anvil with sparks flying. Stone workshop with a roaring fire, flowers and vines growing at the entrance. Warm dramatic lighting, painterly digital illustration, medieval fantasy style.' },
+  { src: '/imagery/sentinel.png', title: 'The Sentinel', desc: 'A golden knight standing guard, embodying vigilance and frontline defense.', prompt: 'A golden armored knight standing guard with a shield bearing an ornate crest, overlooking from a stone battlement. Painterly digital illustration, warm golden lighting, medieval fantasy style, highly detailed metalwork and engravings.' },
+  { src: '/imagery/kingdom.png', title: 'The Kingdom', desc: 'A king overlooking the realm, representing authority and oversight.', prompt: 'A golden-armored king standing on a castle balcony overlooking a medieval town with half-timbered houses and cobblestone streets. Wearing a golden crown and crimson cape. Warm afternoon light, painterly digital art, epic fantasy atmosphere.' },
+  { src: '/imagery/fortress.png', title: 'The Fortress', desc: 'A fortified castle layout symbolizing layered, structured security.', prompt: 'An overhead angled view of a fantasy medieval fortress kingdom map. Multiple castle towers with battlements connected by stone bridges over dark water. Strategic defensive layout with a central fortified castle. Warm golden color palette with deep navy blue water. Painterly digital illustration with visible brushstrokes, mountains in the background. Classical painting technique, atmospheric and rich in texture.' },
+  { src: '/imagery/forge.png', title: 'The Forge', desc: 'A knight at the anvil, conveying craftsmanship and building resilience.', prompt: 'A golden-armored knight working at a blacksmith forge, hammering on an anvil with sparks flying. Stone workshop with a roaring fire, flowers and vines growing at the entrance. Warm dramatic lighting, painterly digital illustration, medieval fantasy style.' },
 ];
 
 function ImageryShowcase() {
@@ -1082,7 +1001,7 @@ export default function BrandGuidelines() {
       <header className="brand-guide-header">
         <h1>Brand Guidelines</h1>
         <p>
-          Everything needed to represent Harden consistently — from the logo and
+          Everything needed to represent Harden consistently, from the logo and
           color palette to voice, motion, and co-branding rules.
         </p>
       </header>
@@ -1108,6 +1027,8 @@ export default function BrandGuidelines() {
             <section key={s.id} id={s.id} className="brand-guide-section">
               <h2>{s.title}</h2>
 
+              {s.desc && <p className="brand-guide-desc">{s.desc}</p>}
+
               {s.showLogo && <LogoShowcase />}
 
               {s.showClearSpace && <ClearSpaceShowcase />}
@@ -1117,6 +1038,8 @@ export default function BrandGuidelines() {
               {s.showTypography && <TypographyShowcase />}
 
               {s.showIconography && <IconographyShowcase />}
+
+              {s.showVoiceTone && <VoiceToneShowcase />}
 
               {s.showImagery && <ImageryShowcase />}
 
@@ -1128,19 +1051,6 @@ export default function BrandGuidelines() {
                 </div>
               )}
 
-              <ul>
-                {s.items.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-              <details className="brand-guide-accordion">
-                <summary>How to populate this section</summary>
-                <ol className="brand-guide-steps">
-                  {s.guide.map((step, i) => (
-                    <li key={i}>{step}</li>
-                  ))}
-                </ol>
-              </details>
             </section>
           ))}
         </main>

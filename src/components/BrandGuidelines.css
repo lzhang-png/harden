@@ -114,16 +114,11 @@
   z-index: 9;
 }
 
-.brand-guide-section ul {
-  margin: 0;
-  padding-left: 1.25rem;
-  list-style: disc;
-}
-
-.brand-guide-section li {
+.brand-guide-desc {
   font-size: clamp(0.85rem, 1.1vw, 0.95rem);
   line-height: 1.65;
   color: #3d3c36;
+  margin: 0 0 1.5rem;
 }
 
 /* ── Clear Space ── */
@@ -561,60 +556,163 @@
   opacity: 0.6;
 }
 
-/* ── Accordion ── */
+/* ── Voice & tone ── */
 
-.brand-guide-accordion {
-  margin-top: 1rem;
-  border: 1px solid #a7a59a;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.brand-guide-accordion summary {
-  padding: 0.7rem 1rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #3d3c36;
-  cursor: pointer;
-  user-select: none;
-  list-style: none;
+.voice-tone-showcase {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.voice-section-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  opacity: 0.45;
+  margin-bottom: 0.75rem;
+}
+
+.voice-traits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.voice-trait {
+  padding: 1rem;
   background: rgba(0, 0, 0, 0.025);
-  transition: background 0.15s;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
-.brand-guide-accordion summary:hover {
-  background: rgba(0, 0, 0, 0.055);
+.voice-trait-name {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #31353B;
 }
 
-.brand-guide-accordion summary::before {
-  content: '\25B6';
-  font-size: 0.55rem;
-  transition: transform 0.2s;
-  flex-shrink: 0;
-}
-
-.brand-guide-accordion[open] summary::before {
-  transform: rotate(90deg);
-}
-
-.brand-guide-accordion summary::-webkit-details-marker {
-  display: none;
-}
-
-.brand-guide-steps {
-  margin: 0;
-  padding: 1rem 1rem 1rem 2.25rem;
-  border-top: 1px solid #a7a59a;
-}
-
-.brand-guide-steps li {
-  font-size: clamp(0.82rem, 1vw, 0.9rem);
-  line-height: 1.6;
+.voice-trait-desc {
+  font-size: 0.82rem;
+  line-height: 1.5;
   color: #3d3c36;
-  padding: 0.2rem 0;
+}
+
+.voice-metaphors-intro {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #3d3c36;
+  margin: 0 0 0.75rem;
+}
+
+.voice-keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.voice-keyword {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.025);
+  border-radius: 8px;
+}
+
+.voice-keyword-concept {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #31353B;
+}
+
+.voice-keyword-metaphor {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #3d3c36;
+}
+
+.voice-context-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.voice-context-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.025);
+  border-radius: 8px;
+}
+
+.voice-context-type {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #31353B;
+}
+
+.voice-context-example {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #3d3c36;
+}
+
+.voice-context-note {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #3d3c36;
+}
+
+.voice-donts-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.voice-donts-table th {
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #3d3c36;
+  opacity: 0.55;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.voice-donts-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: #31353B;
+}
+
+.voice-preferred {
+  font-weight: 500;
+}
+
+.voice-avoided {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+@media (max-width: 640px) {
+  .voice-traits,
+  .voice-keyword-grid,
+  .voice-context-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
