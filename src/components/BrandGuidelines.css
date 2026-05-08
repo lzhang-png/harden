@@ -5,17 +5,21 @@
   max-width: 1060px;
   margin: 0 auto;
   font-family: 'Lato', sans-serif;
+  min-width: 0;
+  width: 100%;
 }
 
 .brand-guide-body {
   display: flex;
   gap: 2.5rem;
   align-items: flex-start;
+  min-width: 0;
 }
 
 .brand-guide-content {
   flex: 1;
   min-width: 0;
+  max-width: 100%;
 }
 
 .brand-guide-header {
@@ -95,6 +99,9 @@
 .brand-guide-section {
   padding: clamp(1.25rem, 2.5vw, 2rem) 0;
   border-top: 1px solid #a7a59a;
+  min-width: 0;
+  /* Offset hash targets (#logo, etc.) so content isn’t hidden under the sticky .app-nav */
+  scroll-margin-top: calc(var(--nav-h, 49px) + 0.75rem);
 }
 
 .brand-guide-section:last-child {
@@ -125,6 +132,7 @@
 
 .clearspace-showcase {
   margin-bottom: 1.25rem;
+  overflow-x: hidden;
 }
 
 .clearspace-intro {
@@ -225,8 +233,36 @@
   max-width: 80px;
 }
 
+/* Stacked + logomark diagrams: explicit SVG dimensions — width:100% + fit-content caused 0-width / invisible SVGs on mobile WebKit */
+.clearspace-diagram--stacked .clearspace-logo,
+.clearspace-diagram--mark .clearspace-logo {
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.clearspace-diagram--stacked .clearspace-logo-svg.clearspace-logo-stacked {
+  display: block;
+  width: 160px;
+  max-width: 160px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.clearspace-diagram--mark .clearspace-logo-svg.clearspace-logo-mark {
+  display: block;
+  width: 80px;
+  max-width: 80px;
+  height: auto;
+  flex-shrink: 0;
+}
+
 .clearspace-min-sizes {
   margin-top: 1.25rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .clearspace-table {
@@ -279,6 +315,7 @@
   flex-direction: column;
   gap: 1.25rem;
   margin-bottom: 1.25rem;
+  overflow-x: hidden;
 }
 
 .brand-guide-logo-row {
@@ -298,15 +335,17 @@
 
 .brand-guide-logo-pair {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: end;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .brand-guide-logo-cell {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  min-width: 0;
 }
 
 .brand-guide-logo-meta {
@@ -314,6 +353,8 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .brand-guide-logo-bg-label {
@@ -418,14 +459,12 @@
   font-size: 0.8rem;
   font-weight: 700;
   color: #000;
-  min-width: 5rem;
 }
 
 .brand-guide-favicon-use {
   font-size: 0.75rem;
   color: #3d3c36;
   opacity: 0.7;
-  min-width: 9rem;
 }
 
 @media (max-width: 640px) {
@@ -478,23 +517,23 @@
 
   .brand-guide-logo-light,
   .brand-guide-logo-dark {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
   }
 
   .brand-guide-logo-svg {
+    max-width: 160px;
+  }
+
+  .brand-guide-logo-svg.brand-guide-logo-stacked {
+    max-width: 100px;
+  }
+
+  .brand-guide-logo-svg.brand-guide-logo-mark {
+    max-width: 56px;
+  }
+
+  .clearspace-logo-svg:not(.clearspace-logo-stacked):not(.clearspace-logo-mark) {
     max-width: 100%;
-  }
-
-  .clearspace-logo-svg {
-    max-width: 100%;
-  }
-
-  .clearspace-logo-svg.clearspace-logo-stacked {
-    max-width: 50%;
-  }
-
-  .clearspace-logo-svg.clearspace-logo-mark {
-    max-width: 30%;
   }
 
   .misuse-grid {
@@ -503,6 +542,28 @@
 
   .misuse-logo-svg {
     max-width: 100%;
+  }
+
+  .palette-table-group {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .palette-table {
+    min-width: 420px;
+  }
+
+  .clearspace-min-sizes {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .clearspace-table {
+    min-width: 380px;
+  }
+
+  .brand-guide-favicon-size-row {
+    flex-wrap: wrap;
   }
 }
 
@@ -513,12 +574,17 @@
   flex-direction: column;
   gap: 1.75rem;
   margin-bottom: 1.25rem;
+  overflow-x: auto;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .palette-table-group {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .palette-group-name {
@@ -591,6 +657,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  overflow-x: hidden;
 }
 
 .voice-section-label {
@@ -703,10 +770,40 @@
   color: #3d3c36;
 }
 
+.voice-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.voice-social-card {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.025);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.voice-social-phrase {
+  display: block;
+  font-family: 'Newsreader', serif;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: #31353B;
+}
+
+.voice-social-copy {
+  margin-top: 0.15rem;
+}
+
 .voice-donts-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.85rem;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 
 .voice-donts-table th {
@@ -739,7 +836,8 @@
 @media (max-width: 640px) {
   .voice-traits,
   .voice-keyword-grid,
-  .voice-context-grid {
+  .voice-context-grid,
+  .voice-social-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -758,6 +856,7 @@
 
 .misuse-showcase {
   margin-bottom: 1rem;
+  overflow-x: hidden;
 }
 
 .misuse-grid {
@@ -853,6 +952,7 @@
 
 .typo-showcase {
   margin-bottom: 1rem;
+  overflow-x: hidden;
 }
 
 .typo-families {
@@ -1006,6 +1106,7 @@
 
 .icon-showcase {
   margin-bottom: 1rem;
+  overflow-x: hidden;
 }
 
 .icon-specs {
@@ -1122,42 +1223,66 @@
 
 .imagery-showcase {
   margin-bottom: 1rem;
+  overflow-x: hidden;
 }
 
 .imagery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 3.25rem;
+  min-width: 0;
 }
 
 .imagery-card {
   display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1.25rem;
+  min-width: 0;
+  width: 100%;
+  padding-block: 1.75rem;
+  box-sizing: border-box;
 }
 
 .imagery-img-wrap {
+  flex: 0 0 auto;
+  width: clamp(160px, 28vw, 280px);
+  max-width: min(280px, 40%);
   border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 1;
   background: #F4F2EA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
 }
 
 .imagery-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   display: block;
+}
+
+.imagery-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .imagery-title {
   font-size: 0.8rem;
   font-weight: 700;
   color: #000;
-  margin-top: 0.2rem;
+  margin-top: 0;
 }
 
 .imagery-desc {
+  display: block;
   font-size: 0.75rem;
   color: #3d3c36;
   opacity: 0.7;
@@ -1165,7 +1290,7 @@
 }
 
 .imagery-prompt {
-  margin-top: 0.4rem;
+  margin-top: 0.25rem;
   padding: 0.6rem 0.75rem;
   background: rgba(0, 0, 0, 0.03);
   border-radius: 6px;
@@ -1212,32 +1337,6 @@
   background: rgba(0, 0, 0, 0.06);
 }
 
-.imagery-prompt-template {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.03);
-  border-radius: 8px;
-}
-
-.imagery-prompt-template-label {
-  display: block;
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #000;
-  opacity: 0.45;
-  margin-bottom: 0.4rem;
-}
-
-.imagery-prompt-template-text {
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: #3d3c36;
-  margin: 0;
-  font-family: 'SF Mono', 'Fira Code', monospace;
-}
-
 .imagery-social-ads {
   margin-top: 1.5rem;
 }
@@ -1256,7 +1355,14 @@
 .imagery-ad-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 2.25rem 2.5rem;
+}
+
+.imagery-ad-card {
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .imagery-ad-flat {
@@ -1266,14 +1372,55 @@
   display: block;
 }
 
+.imagery-ad-download {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.6rem;
+  background: #F4F2EA;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.imagery-ad-card:hover .imagery-ad-download,
+.imagery-ad-card:focus-within .imagery-ad-download {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.imagery-ad-download:hover {
+  background: #EDE8D5;
+}
+
+@media (hover: none) {
+  .imagery-ad-download {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 640px) {
   .imagery-ad-grid {
     grid-template-columns: 1fr;
+  }
+
+  .imagery-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .imagery-img-wrap {
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
   }
 }
 
 @media (max-width: 480px) {
   .imagery-grid {
-    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 }

@@ -23,6 +23,13 @@ export default function Menu() {
             <span className="menu-card-date">4.14.26</span>
           </Link>
         </li>
+        <li>
+          <Link className="menu-card" to="/presentation">
+            <span className="menu-card-title">Presentation</span>
+            <span className="menu-card-hint">Slides, narrative &amp; speaker notes</span>
+            <span className="menu-card-date">5.7.26</span>
+          </Link>
+        </li>
       </ul>
     </div>
   );

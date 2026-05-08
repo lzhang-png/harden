@@ -272,7 +272,7 @@ const sections = [
     id: 'imagery',
     title: 'Imagery & photography',
     showImagery: true,
-    desc: 'Medieval fortress-themed, painterly AI illustrations in warm golds and crimsons. Every subject ties back to a security metaphor.',
+    desc: 'Classical oil-painting hero scenes—visible brushwork, warm chiaroscuro, and gold-armor highlights—plus painterly maritime and isometric fortress views. Every subject ties back to a security metaphor.',
   },
   {
     id: 'voice-tone',
@@ -282,7 +282,7 @@ const sections = [
   },
 ];
 
-function ClearSpaceDiagram({ label, children }) {
+function ClearSpaceDiagram({ label, children, variant }) {
   const logoRef = useRef(null);
   const [pad, setPad] = useState(24);
 
@@ -300,8 +300,10 @@ function ClearSpaceDiagram({ label, children }) {
     return () => ro.disconnect();
   }, []);
 
+  const variantClass = variant ? ` clearspace-diagram--${variant}` : '';
+
   return (
-    <div className="clearspace-diagram">
+    <div className={`clearspace-diagram${variantClass}`}>
       <span className="clearspace-diagram-label">{label}</span>
       <div className="clearspace-box">
         <div className="clearspace-zone" style={{ padding: pad }}>
@@ -327,10 +329,10 @@ function ClearSpaceShowcase() {
         <ClearSpaceDiagram label="Horizontal lockup">
           <HardenLogo className="clearspace-logo-svg" />
         </ClearSpaceDiagram>
-        <ClearSpaceDiagram label="Stacked lockup">
+        <ClearSpaceDiagram label="Stacked lockup" variant="stacked">
           <HardenLogoStacked className="clearspace-logo-svg clearspace-logo-stacked" />
         </ClearSpaceDiagram>
-        <ClearSpaceDiagram label="Logomark">
+        <ClearSpaceDiagram label="Logomark" variant="mark">
           <HardenLogomark className="clearspace-logo-svg clearspace-logo-mark" />
         </ClearSpaceDiagram>
       </div>
@@ -558,7 +560,33 @@ const VOICE_DONTS = [
   { preferred: 'Your app', avoided: 'Your application workload' },
 ];
 
+const SOCIAL_AD_PHRASES = [
+  'Harden AI code before it leaves the gate.',
+  'Deploy like a knight. Govern like a king.',
+  'Scan fast. Patch faster.',
+  'Forge secure AI apps in house.',
+  'Forge fast. Ship hardened.',
+  'Your AI app. Your cloud. Your walls.',
+  'SSO, SCIM, and secure deploys without the siege.',
+  'Keep data inside the castle walls.',
+  'From prototype to protected in minutes.',
+  'Every PR scouted. Every weakness challenged.',
+  'Enterprise guardrails for AI-built apps.',
+  'Zero DevOps overhead. Full fortress control.',
+  'Run in your VPC. Keep credentials in house.',
+  'Security that stands watch while your team ships.',
+];
+
 function VoiceToneShowcase() {
+  const [copiedPhrase, setCopiedPhrase] = useState(null);
+
+  const handleCopyPhrase = useCallback((phrase) => {
+    navigator.clipboard.writeText(phrase).then(() => {
+      setCopiedPhrase(phrase);
+      setTimeout(() => setCopiedPhrase(null), 1200);
+    });
+  }, []);
+
   return (
     <div className="voice-tone-showcase">
       <div className="voice-personality">
@@ -610,6 +638,28 @@ function VoiceToneShowcase() {
             <span className="voice-context-example">"We're looking into this. You'll hear back within the hour."</span>
             <span className="voice-context-note">Warm, reassuring, no deflection.</span>
           </div>
+        </div>
+      </div>
+
+      <div className="voice-social">
+        <span className="voice-section-label">Social ad phrases</span>
+        <p className="voice-metaphors-intro">
+          Short banner lines grounded in Harden's core offer: secure AI-generated code, enterprise identity,
+          scan-and-fix workflows, and deployment inside the customer's own cloud.
+        </p>
+        <div className="voice-social-grid">
+          {SOCIAL_AD_PHRASES.map((phrase) => (
+            <div className="voice-social-card" key={phrase}>
+              <span className="voice-social-phrase">{phrase}</span>
+              <button
+                type="button"
+                className="imagery-prompt-copy voice-social-copy"
+                onClick={() => handleCopyPhrase(phrase)}
+              >
+                {copiedPhrase === phrase ? 'Copied' : 'Copy'}
+              </button>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -716,10 +766,66 @@ function TypographyShowcase() {
 }
 
 const IMAGERY_EXAMPLES = [
-  { src: '/imagery/sentinel.png', title: 'The Sentinel', desc: 'A golden knight standing guard, embodying vigilance and frontline defense.', prompt: 'A golden armored knight standing guard with a shield bearing an ornate crest, overlooking from a stone battlement. Painterly digital illustration, warm golden lighting, medieval fantasy style, highly detailed metalwork and engravings.' },
-  { src: '/imagery/kingdom.png', title: 'The Kingdom', desc: 'A king overlooking the realm, representing authority and oversight.', prompt: 'A golden-armored king standing on a castle balcony overlooking a medieval town with half-timbered houses and cobblestone streets. Wearing a golden crown and crimson cape. Warm afternoon light, painterly digital art, epic fantasy atmosphere.' },
-  { src: '/imagery/fortress.png', title: 'The Fortress', desc: 'A fortified castle layout symbolizing layered, structured security.', prompt: 'An overhead angled view of a fantasy medieval fortress kingdom map. Multiple castle towers with battlements connected by stone bridges over dark water. Strategic defensive layout with a central fortified castle. Warm golden color palette with deep navy blue water. Painterly digital illustration with visible brushstrokes, mountains in the background. Classical painting technique, atmospheric and rich in texture.' },
-  { src: '/imagery/forge.png', title: 'The Forge', desc: 'A knight at the anvil, conveying craftsmanship and building resilience.', prompt: 'A golden-armored knight working at a blacksmith forge, hammering on an anvil with sparks flying. Stone workshop with a roaring fire, flowers and vines growing at the entrance. Warm dramatic lighting, painterly digital illustration, medieval fantasy style.' },
+  {
+    src: '/imagery/kingdom.png',
+    title: 'The Kingdom',
+    desc: 'A crowned knight seen from behind in gold plate and a deep crimson cape—authority and oversight.',
+    prompt:
+      'Regal medieval knight in highly polished ceremonial gold plate armor, seen from behind and slightly to the side; ornate crown-integrated helm, heavy deep-crimson velvet cape with gold embroidery. Soft off-white ground like a classical portrait panel. Style: classical oil painting with visible brushstrokes, subtle impasto on metal highlights, thin glazes in shadows, rich pigmented reds and golds reminiscent of Old Master portraiture. Lighting: warm directional key with gentle falloff, soft chiaroscuro, delicate edge light on armor pleats and fabric folds. Mood: sovereign, contemplative, timeless fantasy epic.',
+    objectPosition: 'right center',
+  },
+  {
+    src: '/imagery/fleet.png',
+    title: 'The Fleet',
+    desc: 'Timber sailing ships on a wind-ripped sea—patrol, reach, and supply beyond the walls.',
+    prompt:
+      'Several medieval cogs and round-hulled sailing ships on a choppy teal-blue sea with whitecaps and foam at the bows; billowing cream sails, carved prows, rope rigging. Neutral pale sky. Style: classical marine oil painting—broken color in the water, scumbled sky, painterly wave crests, atmospheric perspective, canvas texture suggested. Lighting: cool ambient sky balanced by warm low sun glints on sails and hulls. Palette: ultramarine and cerulean seas, warm ivory sails, weathered timber browns. Mood: expeditionary, vigilant, historic epic.',
+  },
+  {
+    src: '/imagery/forge.png',
+    title: 'The Forge',
+    desc: 'An armored smith at the stone anvil, hammer raised over white-hot metal—craftsmanship under pressure.',
+    prompt:
+      'Knight in full ornate gold plate armor as a blacksmith behind a rough stone anvil, mid-swing with a heavy blacksmith hammer, tongs holding incandescent metal with furnace-white heat and a faint violet reflection on the steel. Purple fabric tabard visible beneath armor. Soft cream backdrop. Style: classical oil painting with thick impasto sparks of light, transparent dark glazes in the anvil recesses, fine sgraffito scratches suggesting hammered metal, hand-blended edges like a studio canvas. Lighting: dramatic chiaroscuro from the hot metal, warm secondary bounce on breastplate. Mood: industrious, resolute, master-craftsman.',
+    objectPosition: 'center top',
+  },
+  {
+    src: '/imagery/cavalry.png',
+    title: 'The Cavalry',
+    desc: 'Three knights on white chargers driving forward—coordinated response and rapid reinforcement.',
+    prompt:
+      'Three knights in elaborate polished gold plate mounted on pale warhorses, charging toward the viewer in a shallow V; lances, shields, barding with engraved scrollwork. Cream neutral ground. Style: classical equestrian oil painting in the tradition of heroic battle canvases—energetic brushwork in manes and dust, tight rendering on armor highlights, rich earth and gold tones. Lighting: strong frontal warm key with sculptural shadows, wet-looking metal reflections. Mood: disciplined momentum, unity, decisive action.',
+  },
+  {
+    src: '/imagery/gatehouse.png',
+    title: 'The Gatehouse',
+    desc: 'Mossy stone towers flanking a heavy timber gate—the first line at the perimeter.',
+    prompt:
+      'Medieval stone gatehouse: twin square towers with crenellations, weathered ashlar blocks, green moss and trailing vines, rounded timber double doors with iron studs, dirt path leading to the entrance, pale sky. Style: classical architectural oil painting—careful perspective, descriptive brush texture in masonry, soft atmospheric haze, naturalistic plant growth. Lighting: warm oblique daylight, gentle shadow pockets under arch and eaves. Palette: greige and warm stone, muted sap greens, restrained sky blues. Mood: enduring, guarded, monumental.',
+    objectPosition: 'center bottom',
+  },
+  {
+    src: '/imagery/fortress.png',
+    title: 'The Fortress',
+    desc: 'A painterly isometric walled city—layered walls, towers, and roofs as structured defense.',
+    prompt:
+      'High-angle isometric view of a sprawling medieval fortified city: circular curtain wall, dense cluster of towers with russet terracotta conical roofs, inner keeps, gates, and courtyards, surrounded by tidy grass and a few trees—like a hand-painted “bird’s-eye” siege map brought to life. Style: classical oil painting meets cartographic illustration—visible brush marks on rooftops and foliage, subtle glazing for depth planes, warm umber linework feel, not flat vector. Lighting: soft overhead sun with consistent cast shadows defining walls and lanes. Palette: warm stone, burnt sienna roofs, sap green grounds, dusty atmospheric sky. Mood: systemic, layered, impenetrable.',
+  },
+];
+
+const SOCIAL_AD_EXAMPLES = [
+  { alt: 'Deploy like a knight. Govern like a king.', src: '/imagery/ads-ii/ad_01.png', download: 'harden-ad-ii-01.png' },
+  { alt: 'Forge fast. Ship hardened.', src: '/imagery/ads-ii/ad_02.png', download: 'harden-ad-ii-02.png' },
+  { alt: 'Forge secure AI apps in house.', src: '/imagery/ads-ii/ad_03.png', download: 'harden-ad-ii-03.png' },
+  { alt: 'Every PR scouted. Every weakness challenged.', src: '/imagery/ads-ii/ad_04.png', download: 'harden-ad-ii-04.png' },
+  { alt: 'Harden AI code before it leaves the gate.', src: '/imagery/ads-ii/ad_05.png', download: 'harden-ad-ii-05.png' },
+  { alt: 'Keep data inside the castle walls.', src: '/imagery/ads-ii/ad_06.png', download: 'harden-ad-ii-06.png' },
+  { alt: 'Deploy like a knight. Govern like a king.', src: '/imagery/ads-iii/ad_01.png', download: 'harden-ad-square-01.png' },
+  { alt: 'Forge fast. Ship hardened.', src: '/imagery/ads-iii/ad_02.png', download: 'harden-ad-square-02.png' },
+  { alt: 'Forge secure AI apps in house.', src: '/imagery/ads-iii/ad_03.png', download: 'harden-ad-square-03.png' },
+  { alt: 'Every PR scouted. Every weakness challenged.', src: '/imagery/ads-iii/ad_04.png', download: 'harden-ad-square-04.png' },
+  { alt: 'Harden AI code before it leaves the gate.', src: '/imagery/ads-iii/ad_05.png', download: 'harden-ad-square-05.png' },
+  { alt: 'Keep data inside the castle walls.', src: '/imagery/ads-iii/ad_06.png', download: 'harden-ad-square-06.png' },
 ];
 
 function ImageryShowcase() {
@@ -738,19 +844,26 @@ function ImageryShowcase() {
         {IMAGERY_EXAMPLES.map((img, idx) => (
           <div className="imagery-card" key={img.title}>
             <div className="imagery-img-wrap">
-              <img src={img.src} alt={img.title} className="imagery-img" />
+              <img
+                src={img.src}
+                alt={img.title}
+                className="imagery-img"
+                style={img.objectPosition ? { objectPosition: img.objectPosition } : undefined}
+              />
             </div>
-            <span className="imagery-title">{img.title}</span>
-            <span className="imagery-desc">{img.desc}</span>
-            <div className="imagery-prompt">
-              <span className="imagery-prompt-label">AI Prompt</span>
-              <p className="imagery-prompt-text">{img.prompt}</p>
-              <button
-                className="imagery-prompt-copy"
-                onClick={() => handleCopyPrompt(img.prompt, idx)}
-              >
-                {copiedIdx === idx ? 'Copied' : 'Copy prompt'}
-              </button>
+            <div className="imagery-card-body">
+              <span className="imagery-title">{img.title}</span>
+              <span className="imagery-desc">{img.desc}</span>
+              <div className="imagery-prompt">
+                <span className="imagery-prompt-label">AI Prompt</span>
+                <p className="imagery-prompt-text">{img.prompt}</p>
+                <button
+                  className="imagery-prompt-copy"
+                  onClick={() => handleCopyPrompt(img.prompt, idx)}
+                >
+                  {copiedIdx === idx ? 'Copied' : 'Copy prompt'}
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -759,30 +872,20 @@ function ImageryShowcase() {
       <div className="imagery-social-ads">
         <span className="imagery-social-ads-label">Social ad examples</span>
         <div className="imagery-ad-grid">
-          <img src="/imagery/ad-knight.png" alt="Harden your deployment, like a knight" className="imagery-ad-flat" />
-          <img src="/imagery/ad-king.png" alt="Oversees your deployment, like a king" className="imagery-ad-flat" />
-          <img src="/imagery/ad-fortress.png" alt="Enterprise security for vibe-coded apps" className="imagery-ad-flat" />
-          <img src="/imagery/ad-forge.png" alt="Secure your app, in house" className="imagery-ad-flat" />
+          {SOCIAL_AD_EXAMPLES.map((item) => (
+              <div key={item.src} className="imagery-ad-card">
+                <img src={item.src} alt={item.alt} className="imagery-ad-flat" />
+                <a
+                  className="brand-guide-download imagery-ad-download"
+                  href={item.src}
+                  download={item.download}
+                  aria-label={`Download social ad: ${item.alt}`}
+                >
+                  Download PNG
+                </a>
+              </div>
+            ))}
         </div>
-      </div>
-
-      <div className="imagery-prompt-template">
-        <span className="imagery-prompt-template-label">Prompt template</span>
-        <p className="imagery-prompt-template-text">
-          A [subject in golden armor/medieval setting], [action or pose], [environment details].
-          Warm golden lighting, painterly digital illustration, medieval fantasy style,
-          highly detailed metalwork, [mood: heroic / protective / authoritative].
-          Color palette: gold metallics, warm earth tones, crimson accents.
-        </p>
-        <button
-          className="imagery-prompt-copy"
-          onClick={() => handleCopyPrompt(
-            'A [subject in golden armor/medieval setting], [action or pose], [environment details]. Warm golden lighting, painterly digital illustration, medieval fantasy style, highly detailed metalwork, [mood: heroic / protective / authoritative]. Color palette: gold metallics, warm earth tones, crimson accents.',
-            'template'
-          )}
-        >
-          {copiedIdx === 'template' ? 'Copied' : 'Copy template'}
-        </button>
       </div>
     </div>
   );
