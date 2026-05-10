@@ -423,7 +423,7 @@ export default function Presentation() {
         <article className="slide slide--hero-media slide--on-cream" role="listitem">
           <SlideMark variant="light" />
           <div className="slide-body slide-body--hero-media">
-            <ImageSlot label="Hero image — product, team, or banner still (approx. 16:10)" />
+            <ImageSlot label="Replace Image" />
             <div className="slide-hero-text">
               <h2 className="slide-font-display">Set the visual tone up front</h2>
               <p className="slide-hero-lede slide-font-ui">
@@ -444,14 +444,14 @@ export default function Presentation() {
                 copy tight; let the image carry detail.
               </p>
             </div>
-            <ImageSlot label="Screenshot / diagram — replace" />
+            <ImageSlot label="Replace Image" />
           </div>
         </article>
 
         <article className="slide slide--split-media slide--media-left slide--on-cream" role="listitem">
           <SlideMark variant="light" />
           <div className="slide-body slide-body--split-media slide-body--split-media-reverse">
-            <ImageSlot label="Photography or illustration — replace" />
+            <ImageSlot label="Replace Image" />
             <div className="slide-split-media-copy">
               <h2 className="slide-font-display">Narrative before the bullet list</h2>
               <p className="slide-split-media-deck slide-font-ui">
@@ -470,8 +470,8 @@ export default function Presentation() {
               Before and after, legacy vs. Harden, or two integration examples—equal weight for each frame.
             </p>
             <div className="slide-duo-grid">
-              <ImageSlot label="Image slot A" className="slide-duo-img slide-duo-img--a" />
-              <ImageSlot label="Image slot B" className="slide-duo-img slide-duo-img--b" />
+              <ImageSlot label="Replace Image" className="slide-duo-img slide-duo-img--a" />
+              <ImageSlot label="Replace Image" className="slide-duo-img slide-duo-img--b" />
               <div className="slide-duo-copy slide-duo-copy--a">
                 <p className="slide-duo-column-title slide-font-ui">Before — manual review</p>
                 <p className="slide-duo-text slide-font-ui">
@@ -498,7 +498,7 @@ export default function Presentation() {
               Logos, partners, workflow steps, or security layers—keep visuals consistent in tone and crop.
             </p>
             <div className="slide-trio-grid">
-              <ImageSlot label="Slot 1" className="slide-trio-img slide-trio-img--a" />
+              <ImageSlot label="Replace Image" className="slide-trio-img slide-trio-img--a" />
               <div className="slide-trio-copy slide-trio-copy--a">
                 <p className="slide-trio-column-title slide-font-ui">Integrate</p>
                 <p className="slide-trio-text slide-font-ui">
@@ -506,7 +506,7 @@ export default function Presentation() {
                   diagrams in the frame above.
                 </p>
               </div>
-              <ImageSlot label="Slot 2" className="slide-trio-img slide-trio-img--b" />
+              <ImageSlot label="Replace Image" className="slide-trio-img slide-trio-img--b" />
               <div className="slide-trio-copy slide-trio-copy--b">
                 <p className="slide-trio-column-title slide-font-ui">Govern</p>
                 <p className="slide-trio-text slide-font-ui">
@@ -514,7 +514,7 @@ export default function Presentation() {
                   controls or dashboard grabs.
                 </p>
               </div>
-              <ImageSlot label="Slot 3" className="slide-trio-img slide-trio-img--c" />
+              <ImageSlot label="Replace Image" className="slide-trio-img slide-trio-img--c" />
               <div className="slide-trio-copy slide-trio-copy--c">
                 <p className="slide-trio-column-title slide-font-ui">Deploy</p>
                 <p className="slide-trio-text slide-font-ui">
