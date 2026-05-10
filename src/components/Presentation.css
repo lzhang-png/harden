@@ -44,6 +44,23 @@
   border-radius: 4px;
 }
 
+.presentation-header-slides {
+  margin: 0.9rem 0 0;
+}
+
+.presentation-header-slides-link {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #872921;
+  text-decoration: underline;
+  text-decoration-color: rgba(135, 41, 33, 0.45);
+  text-underline-offset: 0.15em;
+}
+
+.presentation-header-slides-link:hover {
+  text-decoration-color: #872921;
+}
+
 .presentation-deck {
   display: flex;
   flex-direction: column;

@@ -3,19 +3,40 @@
   padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2.5rem) clamp(3rem, 8vw, 6rem);
   max-width: 520px;
   margin: 0 auto;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .menu-header {
   margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
 }
 
-.menu-header h1 {
+.menu-header .menu-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  width: 100%;
+  font-family: 'Newsreader', 'Georgia', serif;
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: -0.02em;
   color: #000;
   margin: 0;
+}
+
+.menu-header-logo-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.menu-header-logo {
+  height: 1em;
+  width: auto;
+  max-width: 100%;
+  display: block;
 }
 
 .menu-list {
@@ -56,20 +77,34 @@
 }
 
 .menu-card-title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: 'Newsreader', 'Georgia', serif;
+  font-size: clamp(1.45rem, 5.2vw, 2.2rem);
+  font-weight: 300;
   letter-spacing: -0.01em;
   color: #000;
 }
 
 .menu-card-hint {
+  font-family: 'Poppins', sans-serif;
   font-size: 0.82rem;
+  font-weight: 400;
   color: #666;
   line-height: 1.4;
 }
 
 .menu-card-date {
+  font-family: 'Poppins', sans-serif;
   font-size: 0.75rem;
+  font-weight: 400;
   color: #999;
   margin-top: 0.15rem;
+}
+
+.menu-last-updated {
+  font-family: 'Poppins', sans-serif;
+  margin: clamp(1.35rem, 3.5vw, 2rem) 0 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #999;
+  line-height: 1.4;
 }

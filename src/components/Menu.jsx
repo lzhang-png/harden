@@ -1,21 +1,19 @@
 import { Link } from 'react-router-dom';
 import './Menu.css';
+import { HardenLogo } from './HardenBrandLogos.jsx';
 
 export default function Menu() {
   return (
     <div className="menu-page">
       <header className="menu-header">
-        <h1>Harden Design</h1>
+        <h1 className="menu-header-title" aria-label="Design files">
+          <span className="menu-header-logo-wrap" aria-hidden="true">
+            <HardenLogo className="menu-header-logo" markColor="#872921" />
+          </span>
+        </h1>
       </header>
 
       <ul className="menu-list" role="list">
-        <li>
-          <Link className="menu-card" to="/proposal">
-            <span className="menu-card-title">Full proposal</span>
-            <span className="menu-card-hint">All directions &amp; pricing</span>
-            <span className="menu-card-date">3.27.26</span>
-          </Link>
-        </li>
         <li>
           <Link className="menu-card" to="/brand-guidelines">
             <span className="menu-card-title">Brand guidelines</span>
@@ -25,12 +23,23 @@ export default function Menu() {
         </li>
         <li>
           <Link className="menu-card" to="/presentation">
-            <span className="menu-card-title">Presentation</span>
+            <span className="menu-card-title">Presentation Templates</span>
             <span className="menu-card-hint">Slides, narrative &amp; speaker notes</span>
             <span className="menu-card-date">5.7.26</span>
           </Link>
         </li>
+        <li>
+          <Link className="menu-card" to="/website-improvement">
+            <span className="menu-card-title">Website Improvement</span>
+            <span className="menu-card-hint">Site updates &amp; mock reference</span>
+            <span className="menu-card-date">5.9.26</span>
+          </Link>
+        </li>
       </ul>
+
+      <p className="menu-last-updated">
+        Last updated <time dateTime="2026-05-09">5.9.26</time>
+      </p>
     </div>
   );
 }

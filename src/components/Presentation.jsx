@@ -59,6 +59,16 @@ export default function Presentation() {
           <strong> image placeholders</strong>—drop screenshots, diagrams, or photography. Export to your deck
           or rebuild in Keynote / Google Slides.
         </p>
+        <p className="presentation-header-slides">
+          <a
+            className="presentation-header-slides-link"
+            href="https://docs.google.com/presentation/d/18NKTiFN1Tz9tNlaBreFOsa2eb2l4mDhBxBq1rhkiQgk/edit?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Google Slides deck
+          </a>
+        </p>
       </header>
 
       <div className="presentation-deck" role="list">
