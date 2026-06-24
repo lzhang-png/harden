@@ -91,7 +91,7 @@ function PricingSection() {
 
 export default function Proposal() {
   return (
-    <div className="proposal">
+    <div className="page-container proposal">
       {directions.map((dir) => (
         <DirectionRow key={dir.num} {...dir} />
       ))}

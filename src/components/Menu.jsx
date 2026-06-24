@@ -1,18 +1,9 @@
 import { Link } from 'react-router-dom';
 import './Menu.css';
-import { HardenLogo } from './HardenBrandLogos.jsx';
 
 export default function Menu() {
   return (
-    <div className="menu-page">
-      <header className="menu-header">
-        <h1 className="menu-header-title" aria-label="Design files">
-          <span className="menu-header-logo-wrap" aria-hidden="true">
-            <HardenLogo className="menu-header-logo" markColor="#872921" />
-          </span>
-        </h1>
-      </header>
-
+    <div className="page-container menu-page">
       <ul className="menu-list" role="list">
         <li>
           <Link className="menu-card" to="/brand-guidelines">

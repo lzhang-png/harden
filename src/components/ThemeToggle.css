@@ -1,0 +1,30 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid var(--theme-border);
+  border-radius: 999px;
+  background: var(--theme-nav-bg);
+  color: var(--theme-text);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    color 0.2s,
+    opacity 0.2s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--theme-border-strong);
+  opacity: 0.85;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--theme-brand);
+  outline-offset: 2px;
+}

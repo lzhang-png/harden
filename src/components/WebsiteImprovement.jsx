@@ -4,9 +4,9 @@ const IMG_SRC = '/imagery/website-improvement.png';
 
 export default function WebsiteImprovement() {
   return (
-    <div className="website-improvement-page">
-      <header className="website-improvement-header">
-        <h1>Website Improvement</h1>
+    <div className="page-container website-improvement-page">
+      <header className="page-header website-improvement-header">
+        <h1 className="page-title">Website Improvement</h1>
         <p>
           Imagery on this site moves from abstract to concrete. Up top, painterly illustrations (the
           fortress wall, the fleet at sea) act as brand metaphors for hardening and governance; they use

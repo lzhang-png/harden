@@ -4,9 +4,9 @@ const IMG_SRC = '/imagery/app-design.png';
 
 export default function AppDesign() {
   return (
-    <div className="app-design-page">
-      <header className="app-design-header">
-        <h1>App Design</h1>
+    <div className="page-container app-design-page">
+      <header className="page-header app-design-header">
+        <h1 className="page-title">App Design</h1>
         <p>Reference mock for product UI, flows, and in-app patterns.</p>
       </header>
       <figure className="app-design-figure">

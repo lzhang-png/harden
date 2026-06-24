@@ -49,9 +49,9 @@ function ImageSlot({ label, className = '' }) {
 
 export default function Presentation() {
   return (
-    <div className="presentation-page">
-      <header className="presentation-header">
-        <h1>Presentation</h1>
+    <div className="page-container presentation-page">
+      <header className="page-header presentation-header">
+        <h1 className="page-title">Presentation</h1>
         <p>
           Customer-facing slide templates at <strong>16:9</strong>. Typography follows brand guidelines:
           <strong> Newsreader</strong> for headlines and <strong>Poppins</strong> for supporting copy. Colors:

@@ -1,6 +1,5 @@
 .proposal {
-  background: #fcfbf5;
-  min-height: 100vh;
+  /* layout from .page-container in index.css */
 }
 
 /* ── Direction Row ── */

@@ -41,23 +41,25 @@ export default function App() {
 
   if (checking) return null;
 
-  if (!authenticated) {
-    return <Gate onAuthenticated={handleAuthenticated} />;
-  }
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AuthenticatedLayout />}>
-          <Route index element={<Menu />} />
-          <Route path="proposal" element={<Proposal />} />
-          <Route path="web-design" element={<WebDesign />} />
-          <Route path="brand-guidelines" element={<BrandGuidelines />} />
-          <Route path="presentation" element={<Presentation />} />
-          <Route path="website-improvement" element={<WebsiteImprovement />} />
-          <Route path="app-design" element={<AppDesign />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      {!authenticated ? (
+        <Gate onAuthenticated={handleAuthenticated} />
+      ) : (
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AuthenticatedLayout />}>
+              <Route index element={<Menu />} />
+              <Route path="proposal" element={<Proposal />} />
+              <Route path="web-design" element={<WebDesign />} />
+              <Route path="brand-guidelines" element={<BrandGuidelines />} />
+              <Route path="presentation" element={<Presentation />} />
+              <Route path="website-improvement" element={<WebsiteImprovement />} />
+              <Route path="app-design" element={<AppDesign />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      )}
+    </>
   );
 }

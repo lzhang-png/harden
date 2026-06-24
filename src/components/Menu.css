@@ -1,42 +1,5 @@
-.menu-page {
-  min-height: 100vh;
-  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2.5rem) clamp(3rem, 8vw, 6rem);
-  max-width: 520px;
-  margin: 0 auto;
-  font-family: 'Poppins', sans-serif;
-}
-
-.menu-header {
-  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
-}
-
-.menu-header .menu-header-title {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.65rem;
-  width: 100%;
-  font-family: 'Newsreader', 'Georgia', serif;
-  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: #000;
-  margin: 0;
-}
-
-.menu-header-logo-wrap {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  min-width: 0;
-  max-width: 100%;
-}
-
-.menu-header-logo {
-  height: 1em;
-  width: auto;
-  max-width: 100%;
-  display: block;
+.page-container.menu-page {
+  padding-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
 .menu-list {
@@ -44,6 +7,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
+  width: 100%;
 }
 
 .menu-card {
@@ -51,8 +15,9 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.2rem;
+  width: 100%;
   padding: 1rem 1.15rem;
-  border: 1px solid #a7a59a;
+  border: 1px solid var(--theme-border);
   border-radius: 10px;
   background: transparent;
   text-decoration: none;
@@ -63,17 +28,17 @@
 }
 
 .menu-card:hover {
-  border-color: #000;
-  background: rgba(0, 0, 0, 0.03);
+  border-color: var(--theme-border-strong);
+  background: var(--theme-surface-hover);
 }
 
 .menu-card-primary {
-  border-color: #000;
-  background: rgba(0, 0, 0, 0.04);
+  border-color: var(--theme-border-strong);
+  background: var(--theme-surface-hover);
 }
 
 .menu-card-primary:hover {
-  background: rgba(0, 0, 0, 0.07);
+  background: var(--theme-surface-active);
 }
 
 .menu-card-title {
@@ -81,14 +46,14 @@
   font-size: clamp(1.45rem, 5.2vw, 2.2rem);
   font-weight: 300;
   letter-spacing: -0.01em;
-  color: #000;
+  color: var(--theme-text);
 }
 
 .menu-card-hint {
   font-family: 'Poppins', sans-serif;
   font-size: 0.82rem;
   font-weight: 400;
-  color: #666;
+  color: var(--theme-text-muted);
   line-height: 1.4;
 }
 
@@ -96,7 +61,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
-  color: #999;
+  color: var(--theme-text-faint);
   margin-top: 0.15rem;
 }
 
@@ -105,6 +70,6 @@
   margin: clamp(1.35rem, 3.5vw, 2rem) 0 0;
   font-size: 0.75rem;
   font-weight: 400;
-  color: #999;
+  color: var(--theme-text-faint);
   line-height: 1.4;
 }

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { verifyPasscode } from '../services/auth';
+import ThemeToggle from './ThemeToggle';
+import './AppNav.css';
 import './Gate.css';
 
 export default function Gate({ onAuthenticated }) {
@@ -28,24 +30,30 @@ export default function Gate({ onAuthenticated }) {
   }
 
   return (
-    <div className="gate">
-      <h2>This page is protected</h2>
-      <p>Enter the passcode to view the design proposal.</p>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="password"
-          placeholder="Passcode"
-          autoComplete="off"
-          autoFocus
-          value={passcode}
-          onChange={(e) => setPasscode(e.target.value)}
-          disabled={loading}
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Checking\u2026' : 'Enter'}
-        </button>
-      </form>
-      <span className="error">{error}</span>
+    <div className="gate-shell">
+      <nav className="app-nav" aria-label="Site">
+        <span className="app-nav-spacer" aria-hidden="true" />
+        <ThemeToggle />
+      </nav>
+      <div className="gate">
+        <h2>This page is protected</h2>
+        <p>Enter the passcode to view the design proposal.</p>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="password"
+            placeholder="Passcode"
+            autoComplete="off"
+            autoFocus
+            value={passcode}
+            onChange={(e) => setPasscode(e.target.value)}
+            disabled={loading}
+          />
+          <button type="submit" disabled={loading}>
+            {loading ? 'Checking\u2026' : 'Enter'}
+          </button>
+        </form>
+        <span className="error">{error}</span>
+      </div>
     </div>
   );
 }

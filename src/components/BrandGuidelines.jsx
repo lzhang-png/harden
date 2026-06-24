@@ -1065,9 +1065,9 @@ export default function BrandGuidelines() {
   }, []);
 
   return (
-    <div className="brand-guide" ref={guideRef}>
-      <header className="brand-guide-header">
-        <h1>Brand Guidelines</h1>
+    <div className="page-container brand-guide" ref={guideRef}>
+      <header className="page-header brand-guide-header">
+        <h1 className="page-title">Brand Guidelines</h1>
         <p>
           Everything needed to represent Harden consistently, from the logo and
           color palette to voice, motion, and co-branding rules.
