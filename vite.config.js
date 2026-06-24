@@ -41,6 +41,7 @@ function vercelApiPlugin() {
   };
 }
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'gh-pages' ? '/harden/' : '/',
   plugins: [vercelApiPlugin(), react()],
-});
+}));

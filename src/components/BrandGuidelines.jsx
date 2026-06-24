@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import './BrandGuidelines.css';
 import { HardenLogo, HardenLogoStacked, HardenLogomark } from './HardenBrandLogos.jsx';
+import { assetUrl } from '../utils/assetUrl.js';
 
 function DownloadSvgButton({ containerRef, filename }) {
   const handleDownload = useCallback(() => {
@@ -730,7 +731,7 @@ function TypographyShowcase() {
   );
 }
 
-const IMAGERY_EXAMPLES = [
+const RAW_IMAGERY_EXAMPLES = [
   {
     src: '/imagery/kingdom.png',
     title: 'The Kingdom',
@@ -778,7 +779,12 @@ const IMAGERY_EXAMPLES = [
   },
 ];
 
-const SOCIAL_AD_EXAMPLES = [
+const IMAGERY_EXAMPLES = RAW_IMAGERY_EXAMPLES.map((img) => ({
+  ...img,
+  src: assetUrl(img.src),
+}));
+
+const RAW_SOCIAL_AD_EXAMPLES = [
   { alt: 'Deploy like a knight. Govern like a king.', src: '/imagery/ads-ii/ad_01.png', download: 'harden-ad-ii-01.png' },
   { alt: 'Forge fast. Ship hardened.', src: '/imagery/ads-ii/ad_02.png', download: 'harden-ad-ii-02.png' },
   { alt: 'Forge secure AI apps in house.', src: '/imagery/ads-ii/ad_03.png', download: 'harden-ad-ii-03.png' },
@@ -792,6 +798,11 @@ const SOCIAL_AD_EXAMPLES = [
   { alt: 'Harden AI code before it leaves the gate.', src: '/imagery/ads-iii/ad_05.png', download: 'harden-ad-square-05.png' },
   { alt: 'Keep data inside the castle walls.', src: '/imagery/ads-iii/ad_06.png', download: 'harden-ad-square-06.png' },
 ];
+
+const SOCIAL_AD_EXAMPLES = RAW_SOCIAL_AD_EXAMPLES.map((ad) => ({
+  ...ad,
+  src: assetUrl(ad.src),
+}));
 
 function ImageryShowcase() {
   const [copiedIdx, setCopiedIdx] = useState(null);

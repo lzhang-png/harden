@@ -1,6 +1,8 @@
 import './WebsiteImprovement.css';
 
-const IMG_SRC = '/imagery/website-improvement.png';
+import { assetUrl } from '../utils/assetUrl.js';
+
+const IMG_SRC = assetUrl('/imagery/website-improvement.png');
 
 export default function WebsiteImprovement() {
   return (

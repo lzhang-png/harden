@@ -1,6 +1,8 @@
 import './AppDesign.css';
 
-const IMG_SRC = '/imagery/app-design.png';
+import { assetUrl } from '../utils/assetUrl.js';
+
+const IMG_SRC = assetUrl('/imagery/app-design.png');
 
 export default function AppDesign() {
   return (

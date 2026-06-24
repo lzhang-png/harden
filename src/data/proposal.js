@@ -1,4 +1,6 @@
-export const directions = [
+import { assetUrl } from '../utils/assetUrl.js';
+
+const rawDirections = [
   {
     num: 1,
     fontFamily: "'Lexend', sans-serif",
@@ -99,6 +101,17 @@ export const directions = [
     ],
   },
 ];
+
+export const directions = rawDirections.map((direction) => ({
+  ...direction,
+  marks: Object.fromEntries(
+    Object.entries(direction.marks).map(([key, mark]) => [
+      key,
+      { ...mark, src: assetUrl(mark.src) },
+    ]),
+  ),
+  mockups: direction.mockups.map(assetUrl),
+}));
 
 export const pricing = {
   deliverables: [

@@ -41,12 +41,14 @@ export default function App() {
 
   if (checking) return null;
 
+  const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '');
+
   return (
     <>
       {!authenticated ? (
         <Gate onAuthenticated={handleAuthenticated} />
       ) : (
-        <BrowserRouter>
+        <BrowserRouter basename={routerBasename || undefined}>
           <Routes>
             <Route element={<AuthenticatedLayout />}>
               <Route index element={<Menu />} />
