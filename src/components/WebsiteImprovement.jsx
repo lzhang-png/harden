@@ -7,7 +7,18 @@ export default function WebsiteImprovement() {
     <div className="website-improvement-page">
       <header className="website-improvement-header">
         <h1>Website Improvement</h1>
-        <p>Reference mock or notes for site updates.</p>
+        <p>
+          Imagery on this site moves from abstract to concrete. Up top, painterly illustrations (the
+          fortress wall, the fleet at sea) act as brand metaphors for hardening and governance; they use
+          soft, feathered edges so they read as part of the canvas, not clipped stock art. Further down,
+          literal product UI screenshots ground the story in the real workflow.
+        </p>
+        <p>
+          Supporting visuals stay disciplined: monochrome partner marks for social proof,
+          small red-line icons for scanability in feature grids, and high-contrast captures where the
+          product needs to be the hero. Together that keeps the “old world” palette and typography
+          feeling premium while the page still converts curiosity into understanding.
+        </p>
       </header>
       <figure className="website-improvement-figure">
         <img

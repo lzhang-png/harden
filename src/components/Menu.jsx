@@ -35,10 +35,17 @@ export default function Menu() {
             <span className="menu-card-date">5.9.26</span>
           </Link>
         </li>
+        <li>
+          <Link className="menu-card" to="/app-design">
+            <span className="menu-card-title">App Design</span>
+            <span className="menu-card-hint">Product UI &amp; mock reference</span>
+            <span className="menu-card-date">6.23.26</span>
+          </Link>
+        </li>
       </ul>
 
       <p className="menu-last-updated">
-        Last updated <time dateTime="2026-05-09">5.9.26</time>
+        Last updated <time dateTime="2026-06-23">6.23.26</time>
       </p>
     </div>
   );

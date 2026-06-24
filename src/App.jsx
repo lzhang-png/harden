@@ -8,6 +8,7 @@ import WebDesign from './components/WebDesign';
 import BrandGuidelines from './components/BrandGuidelines';
 import Presentation from './components/Presentation';
 import WebsiteImprovement from './components/WebsiteImprovement';
+import AppDesign from './components/AppDesign';
 import { getStoredToken, storeToken, clearToken, verifyToken } from './services/auth';
 
 export default function App() {
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="brand-guidelines" element={<BrandGuidelines />} />
           <Route path="presentation" element={<Presentation />} />
           <Route path="website-improvement" element={<WebsiteImprovement />} />
+          <Route path="app-design" element={<AppDesign />} />
         </Route>
       </Routes>
     </BrowserRouter>
