@@ -29,9 +29,6 @@ jobs:
 
       - name: Build for GitHub Pages
         run: npm run build:pages
-        env:
-          VITE_SITE_PASSCODE: ${{ secrets.SITE_PASSCODE }}
-          VITE_TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
 
       - name: Add SPA fallback
         run: cp dist/index.html dist/404.html
