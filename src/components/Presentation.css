@@ -213,6 +213,7 @@
   font-weight: 500;
   max-width: none;
   margin-bottom: 0.75rem;
+  white-space: nowrap;
 }
 
 .slide-subtitle {
@@ -273,6 +274,7 @@
   font-size: var(--slide-title-size);
   font-weight: 500;
   margin-bottom: 0.65rem;
+  text-wrap: balance;
 }
 
 .slide-split-deck {
@@ -446,6 +448,7 @@
   font-size: var(--slide-title-size);
   font-weight: 500;
   margin-bottom: 0.7rem;
+  text-wrap: balance;
 }
 
 .slide-radar-lede {
@@ -726,6 +729,7 @@
   font-weight: 500;
   line-height: 1.1;
   margin-bottom: 0.65rem;
+  text-wrap: balance;
 }
 
 .slide-bento-lede {
@@ -848,6 +852,7 @@
   font-size: var(--slide-title-size);
   font-weight: 400;
   margin-top: 0.35rem;
+  white-space: nowrap;
 }
 
 .slide-roadmap-track {
@@ -859,16 +864,6 @@
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(0.8rem, 2vw, 1.25rem);
   padding-top: clamp(2rem, 5vw, 3rem);
-}
-
-.slide-roadmap-track::before {
-  content: '';
-  position: absolute;
-  left: 6%;
-  right: 6%;
-  top: clamp(2.55rem, 5.5vw, 3.5rem);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(244, 242, 234, 0.18), rgba(244, 242, 234, 0.7), rgba(244, 242, 234, 0.18));
 }
 
 .slide-roadmap-stop {
@@ -919,10 +914,6 @@
 @media (max-width: 720px) {
   .slide-roadmap-track {
     grid-template-columns: 1fr;
-  }
-
-  .slide-roadmap-track::before {
-    display: none;
   }
 }
 
@@ -1186,14 +1177,15 @@
 
 /* Hero: large slot + caption band */
 .slide-body--hero-media {
-  justify-content: center;
+  justify-content: flex-start;
   gap: clamp(0.65rem, 2vw, 1rem);
+  padding-top: clamp(2.75rem, 6vw, 4.25rem);
 }
 
 .slide-body--hero-media .slide-img-slot {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  max-height: 56%;
+  aspect-ratio: 16 / 9;
+  max-height: 74%;
   flex-shrink: 0;
 }
 
@@ -1206,6 +1198,7 @@
 .slide-hero-lede {
   font-size: var(--slide-body-size);
   line-height: 1.5;
+  text-wrap: balance;
   opacity: 0.85;
   max-width: 48ch;
 }

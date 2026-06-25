@@ -2,25 +2,481 @@
   /* layout from .page-container in index.css */
 }
 
-.app-design-header p {
-  font-size: 0.95rem;
+.ad-lead {
+  font-size: 1rem;
+  color: var(--theme-text-muted);
+  line-height: 1.7;
+  margin: 0.4rem 0 0;
+  max-width: 46rem;
+}
+
+/* Sections */
+.ad-section {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.ad-section-head {
+  margin-bottom: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.ad-section-title {
+  font-family: 'Newsreader', 'Georgia', serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--theme-text);
+  margin: 0;
+}
+
+.ad-section-note {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
   color: var(--theme-text-muted);
   line-height: 1.6;
-  margin: 0 0 1.5rem;
+  margin: 0.45rem 0 0;
   max-width: 42rem;
 }
 
-.app-design-figure {
-  margin: 0;
-  padding: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: var(--theme-shadow);
+/* Design approach */
+.ad-practices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
 }
 
-.app-design-image {
+.ad-practice {
+  padding: 1.35rem 1.4rem;
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  background: transparent;
+}
+
+.ad-practice-visual {
+  margin: 0 0 1.1rem;
+  border-radius: 9px;
+  border: 1px solid var(--theme-border-faint);
+  background: var(--theme-surface-hover);
+  overflow: hidden;
+}
+
+.ad-gfx {
   display: block;
   width: 100%;
   height: auto;
-  vertical-align: middle;
+}
+
+/* Graphic primitives — shared across the three visuals */
+.ad-gfx-faint {
+  fill: var(--theme-text);
+  opacity: 0.16;
+}
+
+.ad-gfx-stroke {
+  stroke: var(--theme-text);
+  stroke-width: 1.6;
+  opacity: 0.5;
+}
+
+.ad-gfx-brand-stroke {
+  stroke: var(--theme-brand);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ad-gfx-brand-fill {
+  fill: var(--theme-brand);
+}
+
+.ad-gfx-dot {
+  fill: var(--theme-text);
+  opacity: 0.14;
+}
+
+.ad-gfx-swatch {
+  stroke: var(--theme-border);
+  stroke-width: 1;
+}
+
+.ad-gfx-type {
+  fill: var(--theme-text);
+  font-family: 'Newsreader', 'Georgia', serif;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.ad-gfx-node {
+  fill: var(--theme-canvas);
+  stroke: var(--theme-text);
+  stroke-width: 1.6;
+  opacity: 0.55;
+}
+
+.ad-gfx-h {
+  color: var(--theme-brand);
+  overflow: visible;
+}
+
+.ad-gfx-flow {
+  fill: none;
+  stroke: var(--theme-brand);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 3 7;
+  animation: ad-flow 1.1s linear infinite;
+}
+
+.ad-gfx-flow--out {
+  animation-delay: 0.4s;
+}
+
+.ad-gfx-pulse {
+  fill: none;
+  stroke: var(--theme-brand);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ad-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes ad-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+@keyframes ad-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ad-gfx-flow,
+  .ad-gfx-pulse {
+    animation: none;
+  }
+}
+
+.ad-practice-title {
+  font-family: 'Newsreader', 'Georgia', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--theme-text);
+  margin: 0 0 0.4rem;
+}
+
+.ad-practice-body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  color: var(--theme-text-body);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Workstream cards */
+.ad-workstreams {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.ad-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  background: transparent;
+}
+
+.ad-card-num {
+  display: block;
+  font-family: 'Newsreader', 'Georgia', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--theme-brand);
+  line-height: 1;
+  margin-bottom: 0.65rem;
+}
+
+.ad-card-title {
+  font-family: 'Newsreader', 'Georgia', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--theme-text);
+  margin: 0 0 0.4rem;
+}
+
+.ad-card-summary {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.86rem;
+  color: var(--theme-text-muted);
+  line-height: 1.6;
+  margin: 0 0 0.9rem;
+}
+
+.ad-card-list {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0.9rem 0 0;
+  border-top: 1px solid var(--theme-border-faint);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.ad-card-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  color: var(--theme-text-body);
+  line-height: 1.5;
+}
+
+.ad-card-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--theme-brand-muted);
+}
+
+/* Timeline */
+.ad-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ad-timeline-step {
+  display: grid;
+  grid-template-columns: 7.5rem 12rem 1fr;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--theme-border-faint);
+}
+
+.ad-timeline-step:first-child {
+  border-top: none;
+}
+
+.ad-timeline-week {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--theme-brand);
+  padding-top: 0.1rem;
+}
+
+.ad-timeline-phase {
+  font-family: 'Newsreader', 'Georgia', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--theme-text);
+}
+
+.ad-timeline-detail {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: var(--theme-text-body);
+  line-height: 1.55;
+}
+
+/* Deliverables */
+.ad-deliverables {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+.ad-deliverable {
+  padding-top: 0;
+}
+
+.ad-deliverable-title {
+  font-family: 'Newsreader', 'Georgia', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--theme-text);
+  margin: 0 0 0.4rem;
+}
+
+.ad-deliverable-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: var(--theme-text-body);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .ad-deliverables {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+}
+
+/* Investment */
+.ad-invest-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.ad-invest-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin: 0;
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--theme-border-faint);
+}
+
+.ad-invest-summary > div {
+  padding: 1.1rem 1.25rem;
+  background: var(--theme-canvas);
+}
+
+.ad-invest-summary dt {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--theme-text-faint);
+  margin-bottom: 0.35rem;
+}
+
+.ad-invest-summary dd {
+  font-family: 'Newsreader', 'Georgia', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--theme-text);
+  margin: 0;
+}
+
+.ad-invest-wide,
+.ad-invest-total {
+  grid-column: 1 / -1;
+}
+
+.ad-invest-total dd {
+  color: var(--theme-brand);
+}
+
+.ad-invest-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ad-invest-table th,
+.ad-invest-table td {
+  text-align: left;
+  padding: 0.7rem 1rem;
+  font-size: 0.86rem;
+  color: var(--theme-text-body);
+  border-bottom: 1px solid var(--theme-border-faint);
+}
+
+.ad-invest-table th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--theme-text-faint);
+}
+
+.ad-invest-table td:last-child,
+.ad-invest-table th:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ad-invest-table tfoot td {
+  border-bottom: none;
+  font-weight: 600;
+  color: var(--theme-text);
+}
+
+.ad-invest-note {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  color: var(--theme-text-faint);
+  line-height: 1.55;
+  margin: 0.9rem 0 0;
+  max-width: 42rem;
+}
+
+/* Future stages */
+.ad-future-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.ad-future-list li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  color: var(--theme-text-muted);
+  line-height: 1.55;
+}
+
+.ad-future-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--theme-brand-muted);
+}
+
+@media (max-width: 720px) {
+  .ad-practices,
+  .ad-workstreams,
+  .ad-invest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-invest-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-timeline-step {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .ad-timeline-detail {
+    grid-column: 1;
+  }
 }
