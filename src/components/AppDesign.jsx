@@ -54,7 +54,7 @@ function PracticeVisual({ variant }) {
           </pattern>
         </defs>
         <rect x="0" y="0" width="240" height="120" fill="url(#adDots)" />
-        <text className="ad-gfx-type" x="20" y="82" fontSize="58">Aa</text>
+        <text className="ad-gfx-type" x="34" y="82" fontSize="58">Aa</text>
         <g transform="translate(148, 0)">
           <circle className="ad-gfx-swatch" cx="6" cy="30" r="6" fill="#872921" />
           <circle className="ad-gfx-swatch" cx="24" cy="30" r="6" fill="#BEA163" />
