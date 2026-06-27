@@ -82,6 +82,7 @@ function PracticeVisual({ variant }) {
       <circle className="ad-gfx-node" cx="210" cy="60" r="5" />
       <circle className="ad-gfx-node" cx="210" cy="90" r="5" />
       <rect className="ad-gfx-pulse" x="96" y="38" width="48" height="44" rx="9" />
+      <rect className="ad-gfx-pulse ad-gfx-pulse--2" x="96" y="38" width="48" height="44" rx="9" />
       <svg className="ad-gfx-h" x="104" y="46" width="32" height="28.9" viewBox="0 0 359 324">
         <path
           d="M108.021 81.8526H250.979V6.75C250.979 3.02208 253.998 0 257.722 0H348.799C353.857 0 357.185 5.37691 355.031 9.95776C347.199 26.6148 332.668 60.4086 332.668 81.8526C332.668 107.911 354.126 278.523 358.945 316.511C359.457 320.547 356.3 324 352.236 324H250.979V235.326C250.979 195.771 218.977 163.705 179.5 163.705C140.023 163.705 108.021 195.771 108.021 235.326V324H6.7643C2.69967 324 -0.45743 320.547 0.0545597 316.511C4.8737 278.523 26.3315 107.911 26.3315 81.8526C26.3315 60.4086 11.8006 26.6148 3.96855 9.95775C1.81467 5.3769 5.14309 0 10.2013 0H101.278C105.002 0 108.021 3.02208 108.021 6.75V81.8526Z"
@@ -314,8 +315,7 @@ export default function AppDesign() {
         </div>
 
         <p className="ad-invest-note">
-          $7,500 = 50 hrs × $150/hr — the midpoint of the 40–60 hr range (≈ 5 weeks at 10 hrs/week).
-          Billed on actual hours, so the final total lands within that range.
+          $7,500 = 50 hrs × $150/hr — midpoint of the 40–60 hr estimate. Billed on actual hours.
         </p>
       </section>
 
