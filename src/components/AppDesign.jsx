@@ -55,14 +55,16 @@ function PracticeVisual({ variant }) {
         </defs>
         <rect x="0" y="0" width="240" height="120" fill="url(#adDots)" />
         <text className="ad-gfx-type" x="20" y="82" fontSize="58">Aa</text>
-        <circle className="ad-gfx-swatch" cx="150" cy="30" r="6" fill="#872921" />
-        <circle className="ad-gfx-swatch" cx="168" cy="30" r="6" fill="#BEA163" />
-        <circle className="ad-gfx-swatch" cx="186" cy="30" r="6" fill="#31353B" />
-        <circle className="ad-gfx-swatch" cx="204" cy="30" r="6" fill="#B5564E" />
-        <rect className="ad-gfx-stroke" x="148" y="52" width="58" height="18" rx="9" fill="none" />
-        <rect className="ad-gfx-brand-fill" x="157" y="59" width="26" height="4" rx="2" />
-        <rect className="ad-gfx-stroke" x="148" y="84" width="36" height="16" rx="8" fill="none" />
-        <circle className="ad-gfx-brand-fill" cx="176" cy="92" r="5.5" />
+        <g transform="translate(148, 0)">
+          <circle className="ad-gfx-swatch" cx="6" cy="30" r="6" fill="#872921" />
+          <circle className="ad-gfx-swatch" cx="24" cy="30" r="6" fill="#BEA163" />
+          <circle className="ad-gfx-swatch" cx="42" cy="30" r="6" fill="#31353B" />
+          <circle className="ad-gfx-swatch" cx="60" cy="30" r="6" fill="#B5564E" />
+          <rect className="ad-gfx-stroke" x="0" y="52" width="58" height="18" rx="9" fill="none" />
+          <rect className="ad-gfx-brand-fill" x="9" y="59" width="26" height="4" rx="2" />
+          <rect className="ad-gfx-stroke" x="0" y="84" width="36" height="16" rx="8" fill="none" />
+          <circle className="ad-gfx-brand-fill" cx="28" cy="92" r="5.5" />
+        </g>
       </svg>
     );
   }
