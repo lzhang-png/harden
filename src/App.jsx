@@ -7,6 +7,9 @@ import BrandGuidelines from './components/BrandGuidelines';
 import Presentation from './components/Presentation';
 import WebsiteImprovement from './components/WebsiteImprovement';
 import AppDesign from './components/AppDesign';
+import AppDesignProposal624 from './components/AppDesignProposal624';
+import AppDesignProposal713 from './components/AppDesignProposal713';
+import Invoice713 from './components/Invoice713';
 
 export default function App() {
   const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -21,7 +24,11 @@ export default function App() {
           <Route path="brand-guidelines" element={<BrandGuidelines />} />
           <Route path="presentation" element={<Presentation />} />
           <Route path="website-improvement" element={<WebsiteImprovement />} />
-          <Route path="app-design" element={<AppDesign />} />
+          <Route path="app-design" element={<AppDesign />}>
+            <Route index element={<AppDesignProposal624 />} />
+            <Route path="proposal-7-13" element={<AppDesignProposal713 />} />
+          </Route>
+          <Route path="invoice/proposal-7-13" element={<Invoice713 />} />
         </Route>
       </Routes>
     </BrowserRouter>

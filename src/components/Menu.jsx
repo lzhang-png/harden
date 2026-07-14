@@ -29,14 +29,14 @@ export default function Menu() {
         <li>
           <Link className="menu-card" to="/app-design">
             <span className="menu-card-title">App Design</span>
-            <span className="menu-card-hint">Stage 1 product design proposal</span>
-            <span className="menu-card-date">6.24.26</span>
+            <span className="menu-card-hint">Design system &amp; app dashboard proposal</span>
+            <span className="menu-card-date">7.13.26</span>
           </Link>
         </li>
       </ul>
 
       <p className="menu-last-updated">
-        Last updated <time dateTime="2026-06-24">6.24.26</time>
+        Last updated <time dateTime="2026-07-13">7.13.26</time>
       </p>
     </div>
   );
