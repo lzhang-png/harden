@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { jsPDF } from 'jspdf';
 import './Invoice713.css';
 
@@ -155,6 +155,10 @@ async function buildInvoicePdf() {
 
 export default function Invoice713() {
   const [isDownloading, setIsDownloading] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
 
   const handleDownload = async () => {
     if (isDownloading) return;
